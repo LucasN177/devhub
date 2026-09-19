@@ -1,6 +1,7 @@
 using devhub;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+using MudBlazor.Services;
 using Supabase;
 using Syncro.Core.Interfaces.Infrastructure;
 using Syncro.Core.Interfaces.Services;
@@ -12,6 +13,8 @@ builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+
+builder.Services.AddMudServices();
 
 var url = builder.Configuration["Supabase:Url"];
 var key = builder.Configuration["Supabase:AnonKey"];
