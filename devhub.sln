@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "devhub", "devhub\devhub.csproj", "{AC9603DE-6CF3-48AB-A0C8-A1B968423D76}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AC9603DE-6CF3-48AB-A0C8-A1B968423D76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC9603DE-6CF3-48AB-A0C8-A1B968423D76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC9603DE-6CF3-48AB-A0C8-A1B968423D76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC9603DE-6CF3-48AB-A0C8-A1B968423D76}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
