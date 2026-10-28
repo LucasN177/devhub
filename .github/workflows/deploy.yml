@@ -25,8 +25,8 @@ jobs:
     - name: Publish
       run: dotnet publish -c Release -o release
 
-    - name: Update base href
-      run: sed -i 's/<base href="\/" \/>/<base href="\/devhub\/" \/>/' release/wwwroot/index.html
+    # - name: Update base href
+    #   run: sed -i 's/<base href="\/" \/>/<base href="\/devhub\/" \/>/' release/wwwroot/index.html
 
     # index.html changed after publish, so its integrity hash in the service worker manifest must be updated,
     # otherwise the service worker install fails
