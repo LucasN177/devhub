@@ -82,5 +82,30 @@
     "links": [
       { "label": "Implementierungsplan", "url": "https://github.com/LucasN177/monexa/blob/main/docs/IMPLEMENTIERUNGSPLAN.md" }
     ]
+  },
+  {
+    "slug": "darts",
+    "name": "Darts",
+    "tagline": "Darts zählen und trainieren – mit 11 Spielmodi und Computergegnern",
+    "description": "Darts ist eine Blazor-WebAssembly-App zum Zählen und Trainieren von Darts. Alle Modi lassen sich allein oder mit bis zu 8 Spielern an einem Gerät spielen – auch gemischt mit Computergegnern in sechs Stufen von Anfänger (Ø ~25) bis Weltklasse (Ø ~100). Der Computer wirft auf einer simulierten Scheibe mit echter Feldgeometrie und zielt je Modus mit passender Taktik.\n\nMit Anmeldung werden Spiele, Spieler und Statistiken in Supabase gespeichert, ohne Anmeldung lokal im Browser. Die Spiellogik liegt UI-unabhängig in einer eigenen Bibliothek mit Unit-Tests: Jedes Spiel ist durch Einstellungen, Spieler und die Liste der geworfenen Darts beschrieben, Undo und Wiederherstellen spielen diese Liste einfach neu ab.",
+    "category": "Sport & Spiele",
+    "status": "Active",
+    "progress": 80,
+    "accentColor": "#DC2626",
+    "startedAt": "2024-11-14",
+    "updatedAt": "2026-10-28",
+    "repositoryUrl": "https://github.com/LucasN177/Darts",
+    "liveUrl": "https://lucasn177.github.io/Darts/",
+    "technologies": [ "Blazor WASM", ".NET 10", "MudBlazor", "Supabase", "xUnit", "PWA", "GitHub Pages" ],
+    "features": [
+      "11 Spielmodi: X01, Cricket, Around the Clock, Shanghai, Bob's 27, 121 Checkout, High Score, Killer, Halve-It, Baseball, Gotcha",
+      "Computergegner in sechs Stufen, per Test auf ihren Average kalibriert",
+      "Checkout-Vorschläge und Dart-für-Dart-Eingabe mit Undo über Aufnahmen und Legs hinweg",
+      "Statistik pro Spieler und Modus: Average, First 9, Checkout-Quote, 180er, MPR, Verlaufsdiagramm",
+      "Laufende Spiele überstehen Neuladen, Verlauf mit Aufnahme-Details",
+      "Speicherung in Supabase mit Row Level Security oder lokal im Browser"
+    ],
+    "nextSteps": [],
+    "links": []
   }
 ]
