@@ -1,0 +1,119 @@
+[
+  {
+    "slug": "devhub",
+    "name": "DevHub",
+    "tagline": "Zentrale Übersicht über alle laufenden Projekte",
+    "description": "DevHub ist das persönliche Dashboard für alle Entwicklungsprojekte. Es bündelt Status, Fortschritt, Tech-Stack und wichtige Links an einem Ort und bietet eine schnelle Übersicht darüber, woran gerade gearbeitet wird.\n\nDie Anwendung ist als Blazor WebAssembly App mit MudBlazor umgesetzt und wird automatisch über GitHub Actions auf GitHub Pages deployt.",
+    "category": "Web App",
+    "status": "Active",
+    "progress": 40,
+    "accentColor": "#5B5CE2",
+    "startedAt": "2026-10-01",
+    "updatedAt": "2026-10-28",
+    "repositoryUrl": "https://github.com/LucasN177/devhub",
+    "liveUrl": "https://lucasn177.github.io/devhub/",
+    "technologies": [ "Blazor WASM", ".NET 10", "MudBlazor", "Supabase", "GitHub Pages" ],
+    "features": [
+      "Übersicht aller Projekte mit Status und Fortschritt",
+      "Detailansicht mit Beschreibung, Tech-Stack und Links",
+      "Hell- und Dunkelmodus",
+      "Automatisches Deployment via GitHub Actions"
+    ],
+    "nextSteps": [
+      "Projekte aus Supabase statt aus JSON laden",
+      "Login und Bearbeiten von Projekten",
+      "Aktivitäts-Feed aus GitHub Commits"
+    ],
+    "links": []
+  },
+  {
+    "slug": "syncro",
+    "name": "Syncro",
+    "tagline": "Kanban-Board für Aufgaben und Teams",
+    "description": "Syncro ist ein schlankes Kanban-Board, mit dem Aufgaben über die Spalten Backlog, Todo, In Progress, Review und Done organisiert werden. Benutzer melden sich über Supabase Auth an, Daten werden in Echtzeit synchronisiert.",
+    "category": "Productivity",
+    "status": "Planning",
+    "progress": 15,
+    "accentColor": "#0891B2",
+    "startedAt": "2026-09-15",
+    "updatedAt": "2026-10-20",
+    "repositoryUrl": null,
+    "liveUrl": null,
+    "technologies": [ "Blazor WASM", "MudBlazor", "Supabase", "Realtime" ],
+    "features": [
+      "Login und Registrierung über Supabase Auth",
+      "Board mit fünf Spalten",
+      "Echtzeit-Synchronisierung zwischen Clients"
+    ],
+    "nextSteps": [
+      "Datenmodell für Boards und Karten",
+      "Drag & Drop zwischen Spalten"
+    ],
+    "links": []
+  },
+  {
+    "slug": "portfolio",
+    "name": "Portfolio Website",
+    "tagline": "Persönliche Website mit Lebenslauf und Referenzen",
+    "description": "Beispielprojekt – ersetze diesen Eintrag in wwwroot/data/projects.json durch ein echtes Projekt.\n\nEine statische Portfolio-Seite mit Über-mich-Bereich, Projektreferenzen und Kontaktformular.",
+    "category": "Website",
+    "status": "Completed",
+    "progress": 100,
+    "accentColor": "#10B981",
+    "startedAt": "2026-03-01",
+    "updatedAt": "2026-06-12",
+    "repositoryUrl": null,
+    "liveUrl": null,
+    "technologies": [ "HTML", "CSS", "JavaScript" ],
+    "features": [
+      "Responsives Design",
+      "Projektgalerie",
+      "Kontaktformular"
+    ],
+    "nextSteps": [],
+    "links": []
+  },
+  {
+    "slug": "homelab",
+    "name": "Homelab Monitoring",
+    "tagline": "Dashboards und Alerts für Server zu Hause",
+    "description": "Beispielprojekt – ersetze diesen Eintrag in wwwroot/data/projects.json durch ein echtes Projekt.\n\nMonitoring-Stack für das Homelab mit Metriken, Logs und Benachrichtigungen bei Ausfällen.",
+    "category": "Infrastructure",
+    "status": "Paused",
+    "progress": 60,
+    "accentColor": "#F59E0B",
+    "startedAt": "2026-05-10",
+    "updatedAt": "2026-08-02",
+    "repositoryUrl": null,
+    "liveUrl": null,
+    "technologies": [ "Docker", "Grafana", "Prometheus" ],
+    "features": [
+      "Grafana-Dashboards für alle Hosts",
+      "Alerting per Mail"
+    ],
+    "nextSteps": [
+      "Log-Aggregation ergänzen"
+    ],
+    "links": []
+  },
+  {
+    "slug": "cli-tools",
+    "name": "CLI Tools",
+    "tagline": "Sammlung kleiner Helfer für den Entwickleralltag",
+    "description": "Beispielprojekt – ersetze diesen Eintrag in wwwroot/data/projects.json durch ein echtes Projekt.\n\nEine Sammlung von Kommandozeilen-Tools zur Automatisierung wiederkehrender Aufgaben.",
+    "category": "Tooling",
+    "status": "Idea",
+    "progress": 0,
+    "accentColor": "#8B5CF6",
+    "startedAt": "2026-10-25",
+    "updatedAt": "2026-10-25",
+    "repositoryUrl": null,
+    "liveUrl": null,
+    "technologies": [ ".NET", "System.CommandLine" ],
+    "features": [],
+    "nextSteps": [
+      "Ideen sammeln und priorisieren"
+    ],
+    "links": []
+  }
+]

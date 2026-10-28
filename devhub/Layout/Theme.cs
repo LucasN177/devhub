@@ -140,7 +140,8 @@ public static class Theme
 
         Shadows = new Shadow
         {
-            Elevation = new[]
+            // MudBlazor expects 26 elevation levels; higher levels reuse the strongest shadow
+            Elevation = PadElevations(new[]
             {
                 "none",
 
@@ -160,7 +161,7 @@ public static class Theme
 
                 "0 20px 40px rgba(16, 24, 40, 0.12), " +
                 "0 8px 16px rgba(16, 24, 40, 0.06)"
-            }
+            })
         },
 
         ZIndex = new ZIndex
@@ -180,4 +181,7 @@ public static class Theme
             AppbarHeight = "64px"
         }
     };
+
+    private static string[] PadElevations(string[] elevations) =>
+        elevations.Concat(Enumerable.Repeat(elevations[^1], Math.Max(0, 26 - elevations.Length))).ToArray();
 }

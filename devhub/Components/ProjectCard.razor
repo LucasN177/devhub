@@ -1,0 +1,40 @@
+<a href="@($"projects/{Project.Slug}")" class="project-card-link">
+    <MudPaper Elevation="0" Outlined="true" Class="project-card pa-5 d-flex flex-column" Style="@($"--accent: {Project.AccentColor}")">
+        <div class="d-flex align-center gap-3 mb-4">
+            <ProjectAvatar Project="Project" />
+            <div class="flex-grow-1" style="min-width: 0">
+                <MudText Typo="Typo.h6" Class="text-truncate">@Project.Name</MudText>
+                <MudText Typo="Typo.caption" Class="mud-text-secondary">@Project.Category</MudText>
+            </div>
+            <StatusChip Status="Project.Status" />
+        </div>
+
+        <MudText Typo="Typo.body2" Class="mud-text-secondary mb-4 flex-grow-1">@Project.Tagline</MudText>
+
+        <div class="d-flex flex-wrap gap-1 mb-4">
+            @foreach (var tech in Project.Technologies.Take(3))
+            {
+                <span class="tech-tag">@tech</span>
+            }
+            @if (Project.Technologies.Count > 3)
+            {
+                <span class="tech-tag">+@(Project.Technologies.Count - 3)</span>
+            }
+        </div>
+
+        <div>
+            <div class="d-flex justify-space-between mb-1">
+                <MudText Typo="Typo.caption" Class="mud-text-secondary">Fortschritt</MudText>
+                <MudText Typo="Typo.caption"><b>@Project.Progress %</b></MudText>
+            </div>
+            <div class="accent-progress"><span style="width: @(Project.Progress)%"></span></div>
+            <MudText Typo="Typo.caption" Class="mud-text-secondary d-block mt-3">
+                Aktualisiert @Project.UpdatedAt.ToString("dd.MM.yyyy")
+            </MudText>
+        </div>
+    </MudPaper>
+</a>
+
+@code {
+    [Parameter, EditorRequired] public Project Project { get; set; } = null!;
+}

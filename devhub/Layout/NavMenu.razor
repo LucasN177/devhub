@@ -1,39 +1,47 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="">devhub</a>
-        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-    </div>
-</div>
+@inject IProjectService ProjectService
 
-<div class="@NavMenuCssClass nav-scrollable" @onclick="ToggleNavMenu">
-    <nav class="nav flex-column">
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Counter
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="weather">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Weather
-            </NavLink>
-        </div>
-    </nav>
+<div class="pa-4 pb-2">
+    <MudText Typo="Typo.overline" Class="mud-text-secondary">Übersicht</MudText>
 </div>
+<MudNavMenu Class="px-2">
+    <MudNavLink Href="" Match="NavLinkMatch.All" Icon="@Icons.Material.Rounded.SpaceDashboard">Dashboard</MudNavLink>
+</MudNavMenu>
+
+<div class="pa-4 pb-2 d-flex align-center">
+    <MudText Typo="Typo.overline" Class="mud-text-secondary flex-grow-1">Projekte</MudText>
+    @if (_projects is not null)
+    {
+        <span class="tech-tag">@_projects.Count</span>
+    }
+</div>
+<MudNavMenu Class="px-2 pb-4">
+    @if (_projects is null)
+    {
+        @for (var i = 0; i < 4; i++)
+        {
+            <MudSkeleton Height="40px" Class="mx-2 my-1" />
+        }
+    }
+    else
+    {
+        @foreach (var project in _projects)
+        {
+            <MudNavLink Href="@($"projects/{project.Slug}")" Match="NavLinkMatch.All">
+                <div class="d-flex align-center gap-3">
+                    <span class="status-dot" style="background: @project.AccentColor"></span>
+                    <span class="text-truncate">@project.Name</span>
+                </div>
+            </MudNavLink>
+        }
+    }
+</MudNavMenu>
 
 @code {
-    private bool collapseNavMenu = true;
+    private IReadOnlyList<Project>? _projects;
 
-    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
-
-    private void ToggleNavMenu()
+    protected override async Task OnInitializedAsync()
     {
-        collapseNavMenu = !collapseNavMenu;
+        var result = await ProjectService.GetProjects();
+        _projects = result.Data ?? [];
     }
 }

@@ -1,6 +1,12 @@
-﻿@page "/not-found"
+@page "/not-found"
 @using devhub.Layout
 @layout MainLayout
 
-<h3>Not Found</h3>
-<p>Sorry, the content you are looking for does not exist.</p>
+<PageTitle>DevHub · Nicht gefunden</PageTitle>
+
+<MudPaper Elevation="0" Outlined="true" Class="pa-10 d-flex flex-column align-center">
+    <MudIcon Icon="@Icons.Material.Rounded.TravelExplore" Size="Size.Large" Class="mud-text-secondary" />
+    <MudText Typo="Typo.h3" Class="mt-3">Seite nicht gefunden</MudText>
+    <MudText Typo="Typo.body1" Class="mud-text-secondary mb-4">Die angeforderte Seite existiert leider nicht.</MudText>
+    <MudButton Href="" Variant="Variant.Filled" Color="Color.Primary" StartIcon="@Icons.Material.Rounded.Home">Zur Übersicht</MudButton>
+</MudPaper>

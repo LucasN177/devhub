@@ -1,0 +1,7 @@
+<MudChip T="string" Size="Size.Small" Variant="Variant.Text" Color="@Status.Color()" Icon="@Status.Icon()" Class="ma-0">
+    @Status.Label()
+</MudChip>
+
+@code {
+    [Parameter, EditorRequired] public ProjectStatus Status { get; set; }
+}

@@ -33,5 +33,6 @@ builder.Services.AddSingleton<Client>(provider =>
 builder.Services.AddSingleton<IAuthRepository, AuthRepository>();
 builder.Services.AddSingleton<AppStateService>();
 builder.Services.AddSingleton<IAuthService, AuthService>();
+builder.Services.AddScoped<IProjectService, ProjectService>();
 
 await builder.Build().RunAsync();

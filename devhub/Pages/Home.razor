@@ -1,7 +1,126 @@
-﻿@page "/"
+@page "/"
+@inject IProjectService ProjectService
 
-<PageTitle>Home</PageTitle>
+<PageTitle>DevHub · Dashboard</PageTitle>
 
-<h1>Hello, world!</h1>
+<section class="hero mb-8">
+    <MudText Typo="Typo.overline" Class="hero-eyebrow">@DateTime.Now.ToString("dddd, d. MMMM yyyy", German)</MudText>
+    <MudText Typo="Typo.h1" Class="mt-1 mb-2">@Greeting 👋</MudText>
+    <MudText Typo="Typo.body1" Class="hero-text">
+        Willkommen im DevHub – hier findest du alle aktuellen Projekte auf einen Blick.
+        Wähle ein Projekt, um Beschreibung, Tech-Stack und Links zu sehen.
+    </MudText>
+</section>
 
-Welcome to your new app.
+@if (_error is not null)
+{
+    <MudAlert Severity="Severity.Error" Variant="Variant.Outlined">@_error</MudAlert>
+}
+else if (_projects is null)
+{
+    <MudGrid Spacing="3">
+        @for (var i = 0; i < 4; i++)
+        {
+            <MudItem xs="6" md="3"><MudSkeleton SkeletonType="SkeletonType.Rectangle" Height="104px" Class="rounded-lg" /></MudItem>
+        }
+    </MudGrid>
+}
+else
+{
+    <MudGrid Spacing="3" Class="mb-8">
+        @foreach (var stat in Stats)
+        {
+            <MudItem xs="6" md="3">
+                <MudPaper Elevation="0" Outlined="true" Class="pa-4 d-flex align-center gap-4 stat-card">
+                    <MudAvatar Color="stat.Color" Variant="Variant.Filled" Rounded="true" Class="stat-icon">
+                        <MudIcon Icon="@stat.Icon" />
+                    </MudAvatar>
+                    <div>
+                        <MudText Typo="Typo.h4">@stat.Value</MudText>
+                        <MudText Typo="Typo.caption" Class="mud-text-secondary">@stat.Label</MudText>
+                    </div>
+                </MudPaper>
+            </MudItem>
+        }
+    </MudGrid>
+
+    <div class="d-flex flex-wrap align-center gap-3 mb-4">
+        <MudText Typo="Typo.h5" Class="flex-grow-1">Alle Projekte</MudText>
+        <MudTextField @bind-Value="_search" Immediate="true" Placeholder="Projekt suchen…" Variant="Variant.Outlined" Margin="Margin.Dense"
+                      Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Rounded.Search" Clearable="true" Class="search-field" />
+    </div>
+
+    <div class="d-flex flex-wrap gap-2 mb-6">
+        <MudChip T="string" Variant="@(_filter is null ? Variant.Filled : Variant.Outlined)" Color="Color.Primary" OnClick="() => _filter = null" Class="ma-0">
+            Alle (@_projects.Count)
+        </MudChip>
+        @foreach (var status in Enum.GetValues<ProjectStatus>().Where(s => _projects.Any(p => p.Status == s)))
+        {
+            <MudChip T="string" Variant="@(_filter == status ? Variant.Filled : Variant.Outlined)" Color="status.Color()" Icon="@status.Icon()"
+                     OnClick="() => _filter = status" Class="ma-0">
+                @status.Label() (@_projects.Count(p => p.Status == status))
+            </MudChip>
+        }
+    </div>
+
+    @if (FilteredProjects.Any())
+    {
+        <MudGrid Spacing="3">
+            @foreach (var project in FilteredProjects)
+            {
+                <MudItem xs="12" sm="6" lg="4">
+                    <ProjectCard Project="project" />
+                </MudItem>
+            }
+        </MudGrid>
+    }
+    else
+    {
+        <MudPaper Elevation="0" Outlined="true" Class="pa-10 d-flex flex-column align-center">
+            <MudIcon Icon="@Icons.Material.Rounded.SearchOff" Size="Size.Large" Class="mud-text-secondary" />
+            <MudText Typo="Typo.body1" Class="mt-2">Keine Projekte gefunden.</MudText>
+        </MudPaper>
+    }
+}
+
+@code {
+    private static readonly System.Globalization.CultureInfo German = new("de-DE");
+
+    private IReadOnlyList<Project>? _projects;
+    private string? _error;
+    private string _search = string.Empty;
+    private ProjectStatus? _filter;
+
+    private record Stat(string Label, int Value, string Icon, Color Color);
+
+    private static string Greeting => DateTime.Now.Hour switch
+    {
+        < 11 => "Guten Morgen",
+        < 18 => "Hallo",
+        _ => "Guten Abend"
+    };
+
+    private IEnumerable<Stat> Stats =>
+    [
+        new("Projekte gesamt", _projects!.Count, Icons.Material.Rounded.FolderCopy, Color.Primary),
+        new("Aktiv", _projects!.Count(p => p.Status == ProjectStatus.Active), Icons.Material.Rounded.RocketLaunch, Color.Success),
+        new("In Planung", _projects!.Count(p => p.Status is ProjectStatus.Planning or ProjectStatus.Idea), Icons.Material.Rounded.EditCalendar, Color.Info),
+        new("Abgeschlossen", _projects!.Count(p => p.Status == ProjectStatus.Completed), Icons.Material.Rounded.CheckCircle, Color.Tertiary)
+    ];
+
+    private IEnumerable<Project> FilteredProjects => _projects!
+        .Where(p => _filter is null || p.Status == _filter)
+        .Where(p => string.IsNullOrWhiteSpace(_search)
+                    || p.Name.Contains(_search, StringComparison.OrdinalIgnoreCase)
+                    || p.Tagline.Contains(_search, StringComparison.OrdinalIgnoreCase)
+                    || p.Technologies.Any(t => t.Contains(_search, StringComparison.OrdinalIgnoreCase)));
+
+    protected override async Task OnInitializedAsync()
+    {
+        var result = await ProjectService.GetProjects();
+        if (result.IsSuccess)
+            _projects = result.Data;
+        else
+            _error = "Projekte konnten nicht geladen werden.";
+    }
+}
