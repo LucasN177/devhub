@@ -28,6 +28,14 @@ jobs:
     - name: Update base href
       run: sed -i 's/<base href="\/" \/>/<base href="\/devhub\/" \/>/' release/wwwroot/index.html
 
+    # index.html changed after publish, so its integrity hash in the service worker manifest must be updated,
+    # otherwise the service worker install fails
+    - name: Update index.html hash in service worker manifest
+      run: |
+        export HASH="sha256-$(openssl dgst -sha256 -binary release/wwwroot/index.html | openssl base64 -A)"
+        perl -0pi -e 's{"hash": "[^"]*"(,\s*"url": "index\.html")}{"hash": "$ENV{HASH}"$1}' release/wwwroot/service-worker-assets.js
+        grep -qF "$HASH" release/wwwroot/service-worker-assets.js
+
     - name: Copy index.html to 404.html
       run: cp release/wwwroot/index.html release/wwwroot/404.html
 
