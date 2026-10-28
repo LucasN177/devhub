@@ -1,0 +1,8 @@
+<div class="project-avatar" style="--accent: @Project.AccentColor; width: @(Size)px; height: @(Size)px; font-size: @(Size * 38 / 100)px">
+    @Project.Initials
+</div>
+
+@code {
+    [Parameter, EditorRequired] public Project Project { get; set; } = null!;
+    [Parameter] public int Size { get; set; } = 44;
+}

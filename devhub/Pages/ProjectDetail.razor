@@ -1,0 +1,203 @@
+@page "/projects/{Slug}"
+@inject IProjectService ProjectService
+
+<PageTitle>DevHub · @(_project?.Name ?? "Projekt")</PageTitle>
+
+<MudButton Href="./" Variant="Variant.Text" StartIcon="@Icons.Material.Rounded.ArrowBack" Color="Color.Default" Class="mb-4 ml-n2">
+    Zurück zur Übersicht
+</MudButton>
+
+@if (_loading)
+{
+    <MudSkeleton SkeletonType="SkeletonType.Rectangle" Height="200px" Class="rounded-lg mb-6" />
+    <MudGrid Spacing="4">
+        <MudItem xs="12" md="8"><MudSkeleton SkeletonType="SkeletonType.Rectangle" Height="320px" Class="rounded-lg" /></MudItem>
+        <MudItem xs="12" md="4"><MudSkeleton SkeletonType="SkeletonType.Rectangle" Height="320px" Class="rounded-lg" /></MudItem>
+    </MudGrid>
+}
+else if (_project is null)
+{
+    <MudPaper Elevation="0" Outlined="true" Class="pa-10 d-flex flex-column align-center">
+        <MudIcon Icon="@Icons.Material.Rounded.TravelExplore" Size="Size.Large" Class="mud-text-secondary" />
+        <MudText Typo="Typo.h5" Class="mt-3">Projekt nicht gefunden</MudText>
+        <MudText Typo="Typo.body2" Class="mud-text-secondary">Zu "@Slug" gibt es keinen Eintrag.</MudText>
+    </MudPaper>
+}
+else
+{
+    <MudPaper Elevation="0" Class="detail-hero pa-6 pa-sm-8 mb-6" Style="@($"--accent: {_project.AccentColor}")">
+        <div class="d-flex flex-wrap align-center gap-5">
+            <ProjectAvatar Project="_project" Size="72" />
+            <div class="flex-grow-1" style="min-width: 220px">
+                <div class="d-flex flex-wrap align-center gap-2 mb-1">
+                    <MudText Typo="Typo.overline" Class="hero-eyebrow">@_project.Category</MudText>
+                    <StatusChip Status="_project.Status" />
+                </div>
+                <MudText Typo="Typo.h2">@_project.Name</MudText>
+                <MudText Typo="Typo.body1" Class="hero-text mt-1">@_project.Tagline</MudText>
+            </div>
+            <div class="d-flex flex-wrap gap-2">
+                @if (!string.IsNullOrWhiteSpace(_project.LiveUrl))
+                {
+                    <MudButton Href="@_project.LiveUrl" Target="_blank" Variant="Variant.Filled" Color="Color.Primary" StartIcon="@Icons.Material.Rounded.OpenInNew">
+                        Öffnen
+                    </MudButton>
+                }
+                @if (!string.IsNullOrWhiteSpace(_project.RepositoryUrl))
+                {
+                    <MudButton Href="@_project.RepositoryUrl" Target="_blank" Variant="Variant.Outlined" StartIcon="@Icons.Custom.Brands.GitHub">
+                        Repository
+                    </MudButton>
+                }
+            </div>
+        </div>
+    </MudPaper>
+
+    <MudGrid Spacing="4">
+        <MudItem xs="12" md="8">
+            <MudPaper Elevation="0" Outlined="true" Class="pa-6 mb-4">
+                <MudText Typo="Typo.h5" Class="mb-3">Beschreibung</MudText>
+                @foreach (var paragraph in _project.Description.Split('\n', StringSplitOptions.RemoveEmptyEntries))
+                {
+                    <MudText Typo="Typo.body1" Class="mb-3 description">@paragraph</MudText>
+                }
+            </MudPaper>
+
+            @if (_project.Features.Any() || _project.NextSteps.Any())
+            {
+                <MudGrid Spacing="4">
+                    @if (_project.Features.Any())
+                    {
+                        <MudItem xs="12" sm="@(_project.NextSteps.Any() ? 6 : 12)">
+                            <MudPaper Elevation="0" Outlined="true" Class="pa-6 full-height">
+                                <MudText Typo="Typo.h6" Class="mb-3">Features</MudText>
+                                @foreach (var feature in _project.Features)
+                                {
+                                    <div class="d-flex gap-3 mb-2">
+                                        <MudIcon Icon="@Icons.Material.Rounded.CheckCircle" Color="Color.Success" Size="Size.Small" Class="mt-1" />
+                                        <MudText Typo="Typo.body2">@feature</MudText>
+                                    </div>
+                                }
+                            </MudPaper>
+                        </MudItem>
+                    }
+                    @if (_project.NextSteps.Any())
+                    {
+                        <MudItem xs="12" sm="@(_project.Features.Any() ? 6 : 12)">
+                            <MudPaper Elevation="0" Outlined="true" Class="pa-6 full-height">
+                                <MudText Typo="Typo.h6" Class="mb-3">Nächste Schritte</MudText>
+                                @foreach (var step in _project.NextSteps)
+                                {
+                                    <div class="d-flex gap-3 mb-2">
+                                        <MudIcon Icon="@Icons.Material.Rounded.RadioButtonUnchecked" Size="Size.Small" Class="mud-text-secondary mt-1" />
+                                        <MudText Typo="Typo.body2">@step</MudText>
+                                    </div>
+                                }
+                            </MudPaper>
+                        </MudItem>
+                    }
+                </MudGrid>
+            }
+        </MudItem>
+
+        <MudItem xs="12" md="4">
+            <MudPaper Elevation="0" Outlined="true" Class="pa-6 mb-4" Style="@($"--accent: {_project.AccentColor}")">
+                <MudText Typo="Typo.h6" Class="mb-4">Details</MudText>
+
+                <div class="d-flex justify-space-between mb-1">
+                    <MudText Typo="Typo.body2" Class="mud-text-secondary">Fortschritt</MudText>
+                    <MudText Typo="Typo.body2"><b>@_project.Progress %</b></MudText>
+                </div>
+                <div class="accent-progress mb-5"><span style="width: @(_project.Progress)%"></span></div>
+
+                <dl class="info-list">
+                    <dt>Status</dt>
+                    <dd>@_project.Status.Label()</dd>
+                    <dt>Kategorie</dt>
+                    <dd>@_project.Category</dd>
+                    <dt>Gestartet</dt>
+                    <dd>@_project.StartedAt.ToString("dd.MM.yyyy")</dd>
+                    <dt>Aktualisiert</dt>
+                    <dd>@_project.UpdatedAt.ToString("dd.MM.yyyy")</dd>
+                </dl>
+            </MudPaper>
+
+            @if (_project.Technologies.Any())
+            {
+                <MudPaper Elevation="0" Outlined="true" Class="pa-6 mb-4">
+                    <MudText Typo="Typo.h6" Class="mb-3">Tech-Stack</MudText>
+                    <div class="d-flex flex-wrap gap-2">
+                        @foreach (var tech in _project.Technologies)
+                        {
+                            <span class="tech-tag">@tech</span>
+                        }
+                    </div>
+                </MudPaper>
+            }
+
+            @if (AllLinks.Any())
+            {
+                <MudPaper Elevation="0" Outlined="true" Class="pa-6">
+                    <MudText Typo="Typo.h6" Class="mb-3">Links</MudText>
+                    @foreach (var link in AllLinks)
+                    {
+                        <a href="@link.Url" target="_blank" rel="noopener" class="link-row">
+                            <MudIcon Icon="@Icons.Material.Rounded.Link" Size="Size.Small" />
+                            <div style="min-width: 0">
+                                <MudText Typo="Typo.body2"><b>@link.Label</b></MudText>
+                                <MudText Typo="Typo.caption" Class="mud-text-secondary text-truncate d-block">@link.Url</MudText>
+                            </div>
+                        </a>
+                    }
+                </MudPaper>
+            }
+        </MudItem>
+    </MudGrid>
+
+    <div class="d-flex justify-space-between flex-wrap gap-2 mt-8">
+        @if (_previous is not null)
+        {
+            <MudButton Href="@($"projects/{_previous.Slug}")" Variant="Variant.Text" StartIcon="@Icons.Material.Rounded.ChevronLeft">@_previous.Name</MudButton>
+        }
+        else
+        {
+            <span></span>
+        }
+        @if (_next is not null)
+        {
+            <MudButton Href="@($"projects/{_next.Slug}")" Variant="Variant.Text" EndIcon="@Icons.Material.Rounded.ChevronRight">@_next.Name</MudButton>
+        }
+    </div>
+}
+
+@code {
+    [Parameter] public string Slug { get; set; } = string.Empty;
+
+    private Project? _project;
+    private Project? _previous;
+    private Project? _next;
+    private bool _loading = true;
+
+    private IEnumerable<ProjectLink> AllLinks
+    {
+        get
+        {
+            if (_project is null) yield break;
+            if (!string.IsNullOrWhiteSpace(_project.LiveUrl)) yield return new ProjectLink { Label = "Live-Version", Url = _project.LiveUrl };
+            if (!string.IsNullOrWhiteSpace(_project.RepositoryUrl)) yield return new ProjectLink { Label = "Repository", Url = _project.RepositoryUrl };
+            foreach (var link in _project.Links) yield return link;
+        }
+    }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        var result = await ProjectService.GetProjects();
+        var projects = result.Data ?? [];
+        var index = projects.ToList().FindIndex(p => string.Equals(p.Slug, Slug, StringComparison.OrdinalIgnoreCase));
+
+        _project = index >= 0 ? projects[index] : null;
+        _previous = index > 0 ? projects[index - 1] : null;
+        _next = index >= 0 && index < projects.Count - 1 ? projects[index + 1] : null;
+        _loading = false;
+    }
+}

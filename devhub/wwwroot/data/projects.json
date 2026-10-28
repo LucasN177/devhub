@@ -1,0 +1,145 @@
+[
+  {
+    "slug": "devhub",
+    "name": "DevHub",
+    "tagline": "Zentrale Übersicht über alle laufenden Projekte",
+    "description": "DevHub ist das persönliche Dashboard für alle Entwicklungsprojekte. Es bündelt Status, Fortschritt, Tech-Stack und wichtige Links an einem Ort und bietet eine schnelle Übersicht darüber, woran gerade gearbeitet wird.\n\nDie Anwendung ist als Blazor WebAssembly App mit MudBlazor umgesetzt und wird automatisch über GitHub Actions auf GitHub Pages deployt.",
+    "category": "Web App",
+    "status": "Active",
+    "progress": 40,
+    "accentColor": "#5B5CE2",
+    "startedAt": "2026-10-01",
+    "updatedAt": "2026-10-28",
+    "repositoryUrl": "https://github.com/LucasN177/devhub",
+    "liveUrl": "https://lucasn177.github.io/devhub/",
+    "technologies": [ "Blazor WASM", ".NET 10", "MudBlazor", "Supabase", "GitHub Pages" ],
+    "features": [
+      "Übersicht aller Projekte mit Status und Fortschritt",
+      "Detailansicht mit Beschreibung, Tech-Stack und Links",
+      "Hell- und Dunkelmodus",
+      "Automatisches Deployment via GitHub Actions"
+    ],
+    "nextSteps": [
+      "Projekte aus Supabase statt aus JSON laden",
+      "Login und Bearbeiten von Projekten",
+      "Aktivitäts-Feed aus GitHub Commits"
+    ],
+    "links": []
+  },
+  {
+    "slug": "syncro",
+    "name": "Syncro",
+    "tagline": "Projektmanagement mit Kanban-Board, Kalender und Echtzeit-Zusammenarbeit",
+    "description": "Syncro ist ein leichtgewichtiges Projektmanagement-Tool als Progressive Web App. Teams verwalten Issues auf Kanban-Boards mit den Spalten Backlog, Todo, In Progress, Review und Done, planen Termine im Kalender und behalten über Dashboard und Reports den Überblick. Änderungen anderer Mitglieder erscheinen dank Supabase Realtime ohne Neuladen.\n\nDas Hobby-Projekt setzt bewusst auf handgeschriebenen Code und eine durchdachte Architektur. Rechte werden pro Projekt über Rollen direkt in der Datenbank per Row Level Security geprüft; das Datenbankschema wird mit eigenen SQL-Tests abgesichert.",
+    "category": "Produktivität",
+    "status": "Active",
+    "progress": 80,
+    "accentColor": "#0891B2",
+    "startedAt": "2026-04-20",
+    "updatedAt": "2026-10-28",
+    "repositoryUrl": "https://github.com/LucasN177/Syncro",
+    "liveUrl": "https://lucasn177.github.io/Syncro/",
+    "technologies": [ "Blazor WASM", ".NET 10", "MudBlazor", "Supabase", "PostgreSQL", "Realtime", "PWA", "GitHub Pages" ],
+    "features": [
+      "Kanban-Board mit gespeichertem Drag & Drop, Suche und Filtern nach Assignee, Priorität und Typ",
+      "Issues mit Typ, Priorität, Fälligkeit, Tags, Kommentaren und Dateianhängen",
+      "Projekte mit Rollen (Admin, Member, Viewer), Einladungen per E-Mail und Archivierung",
+      "Kalender mit Monats-, Wochen- und Listenansicht inkl. fälliger Issues",
+      "Dashboard und Reports aus echten Daten, CSV-Export",
+      "Live-Board und Benachrichtigungen für Zuweisungen, Kommentare und @Erwähnungen",
+      "Anmeldung über Supabase Auth inkl. Passwort-Reset, Dark Mode"
+    ],
+    "nextSteps": [
+      "Push-Benachrichtigungen bei Erwähnungen und Deadlines, auch wenn die App geschlossen ist",
+      "README-Roadmap auf den aktuellen Stand bringen"
+    ],
+    "links": []
+  },
+  {
+    "slug": "monexa",
+    "name": "MonExA",
+    "tagline": "Finanzen über mehrere Projekte und Benutzer hinweg verwalten",
+    "description": "MonExA (MONey + EXpenses + Analysis) ist eine Progressive Web App, die Finanzen über mehrere Projekte und Benutzer hinweg zentral verwaltet – etwa für Freelancing, Startups oder private Investitionen. Jedes Projekt hat eigene Konten, Kategorien, Budgets und Auswertungen, Teammitglieder werden per E-Mail eingeladen und erhalten passende Rollen.\n\nDie App läuft als PWA auf iOS, Android und Desktop ohne App-Store. Mit Supabase-Konfiguration arbeitet sie im Cloud-Modus mit Login, Echtzeit-Synchronisation und Row Level Security; ohne Backend startet sie im Demo-Modus mit Beispieldaten im Browser.",
+    "category": "Finanzen",
+    "status": "Active",
+    "progress": 45,
+    "accentColor": "#059669",
+    "startedAt": "2025-10-03",
+    "updatedAt": "2026-10-28",
+    "repositoryUrl": "https://github.com/LucasN177/monexa",
+    "liveUrl": "https://lucasn177.github.io/monexa/",
+    "technologies": [ "Blazor WASM", ".NET 9", "MudBlazor", "Supabase", "PostgreSQL", "PWA", "GitHub Pages" ],
+    "features": [
+      "Projekte mit Rollen (Leser, Bearbeiter, Admin) und Einladungen per E-Mail",
+      "Konten, Buchungen und Umbuchungen mit automatischen Salden",
+      "Daueraufträge, Budgets mit Ampel und Sparziele",
+      "Dashboard, Monats- und Jahresberichte sowie Zeitraumvergleiche",
+      "Kategorie-Vorschläge auf Basis früherer Buchungen",
+      "CSV-Export und JSON-Backup pro Projekt",
+      "Echtzeit-Synchronisation und Demo-Modus ohne Backend"
+    ],
+    "nextSteps": [
+      "Open Banking (PSD2/FinTS) zur Anbindung echter Bankkonten",
+      "KI-gestützte Kategorisierung von Umsätzen",
+      "DATEV-Export für Steuerberater"
+    ],
+    "links": [
+      { "label": "Implementierungsplan", "url": "https://github.com/LucasN177/monexa/blob/main/docs/IMPLEMENTIERUNGSPLAN.md" }
+    ]
+  },
+  {
+    "slug": "darts",
+    "name": "Darts",
+    "tagline": "Darts zählen und trainieren – mit 11 Spielmodi und Computergegnern",
+    "description": "Darts ist eine Blazor-WebAssembly-App zum Zählen und Trainieren von Darts. Alle Modi lassen sich allein oder mit bis zu 8 Spielern an einem Gerät spielen – auch gemischt mit Computergegnern in sechs Stufen von Anfänger (Ø ~25) bis Weltklasse (Ø ~100). Der Computer wirft auf einer simulierten Scheibe mit echter Feldgeometrie und zielt je Modus mit passender Taktik.\n\nMit Anmeldung werden Spiele, Spieler und Statistiken in Supabase gespeichert, ohne Anmeldung lokal im Browser. Die Spiellogik liegt UI-unabhängig in einer eigenen Bibliothek mit Unit-Tests: Jedes Spiel ist durch Einstellungen, Spieler und die Liste der geworfenen Darts beschrieben, Undo und Wiederherstellen spielen diese Liste einfach neu ab.",
+    "category": "Sport & Spiele",
+    "status": "Active",
+    "progress": 80,
+    "accentColor": "#DC2626",
+    "startedAt": "2024-11-14",
+    "updatedAt": "2026-10-28",
+    "repositoryUrl": "https://github.com/LucasN177/Darts",
+    "liveUrl": "https://lucasn177.github.io/Darts/",
+    "technologies": [ "Blazor WASM", ".NET 10", "MudBlazor", "Supabase", "xUnit", "PWA", "GitHub Pages" ],
+    "features": [
+      "11 Spielmodi: X01, Cricket, Around the Clock, Shanghai, Bob's 27, 121 Checkout, High Score, Killer, Halve-It, Baseball, Gotcha",
+      "Computergegner in sechs Stufen, per Test auf ihren Average kalibriert",
+      "Checkout-Vorschläge und Dart-für-Dart-Eingabe mit Undo über Aufnahmen und Legs hinweg",
+      "Statistik pro Spieler und Modus: Average, First 9, Checkout-Quote, 180er, MPR, Verlaufsdiagramm",
+      "Laufende Spiele überstehen Neuladen, Verlauf mit Aufnahme-Details",
+      "Speicherung in Supabase mit Row Level Security oder lokal im Browser"
+    ],
+    "nextSteps": [],
+    "links": []
+  },
+  {
+    "slug": "placebook",
+    "name": "Placebook",
+    "tagline": "Orte sammeln – alle Filialen einer Kette auf der Karte abhaken",
+    "description": "Placebook zeigt auf einer Karte alle Orte einer Kategorie – etwa alle McDonald's-Filialen oder IKEA-Häuser in Europa – und man hakt ab, wo man schon war. Die Karte startet mit ganz Europa und lässt sich bis auf Straßenebene zoomen; Cluster zeigen per Ring den Anteil besuchter Orte.\n\nDie App ist rein statisch: Die Ortsdaten werden aus OpenStreetMap über die Overpass API erzeugt, monatlich per GitHub Action aktualisiert und mit ausgeliefert. Besuche liegen offline-first im Browser und werden zusätzlich in Supabase gespeichert – ohne Anmeldung über einen Sync-Code oder mit Konto.",
+    "category": "Karten & Reisen",
+    "status": "Active",
+    "progress": 75,
+    "accentColor": "#2563EB",
+    "startedAt": "2026-10-28",
+    "updatedAt": "2026-10-28",
+    "repositoryUrl": "https://github.com/LucasN177/placebook",
+    "liveUrl": "https://lucasn177.github.io/placebook/",
+    "technologies": [ "Blazor WASM", ".NET 10", "MudBlazor", "Leaflet", "OpenStreetMap", "Supabase", "PWA", "GitHub Pages" ],
+    "features": [
+      "Interaktive Karte mit Marker-Clustering und Fortschrittsring pro Cluster",
+      "Orte als besucht markieren – mit Datum und Notiz",
+      "Kategorien: McDonald's (8.783 Orte), Burger King (4.318) und IKEA (424) in 45 Ländern",
+      "Listenansicht mit Suche und Sortierung nach Ort, Land oder Entfernung",
+      "Statistik gesamt und pro Land, eigener Standort und nächster unbesuchter Ort",
+      "Cloud-Sync über Sync-Code oder Konto, Export/Import als JSON",
+      "Installierbar als PWA, funktioniert offline"
+    ],
+    "nextSteps": [
+      "Ortsdaten für Krankenhäuser und Universitäten erzeugen"
+    ],
+    "links": [
+      { "label": "Implementationsplan", "url": "https://github.com/LucasN177/placebook/blob/main/docs/IMPLEMENTATION_PLAN.md" }
+    ]
+  }
+]

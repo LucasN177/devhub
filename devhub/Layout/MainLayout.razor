@@ -1,16 +1,58 @@
 @inherits LayoutComponentBase
-<div class="page">
-    <div class="sidebar">
+@implements IDisposable
+@inject AppStateService AppState
+
+<MudThemeProvider @ref="_themeProvider" Theme="Theme.FirstTheme" IsDarkMode="AppState.IsDarkMode" />
+<MudPopoverProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+<MudLayout>
+    <MudAppBar Elevation="0" Class="app-bar">
+        <MudIconButton Icon="@Icons.Material.Rounded.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="AppState.DrawerToggle" aria-label="Navigation umschalten" />
+        <a href="" class="brand ml-2">
+            <span class="brand-mark"><MudIcon Icon="@Icons.Material.Rounded.Hub" Size="Size.Small" /></span>
+            <span class="brand-name">DevHub</span>
+        </a>
+        <MudSpacer />
+        <MudTooltip Text="@(AppState.IsDarkMode ? "Heller Modus" : "Dunkler Modus")">
+            <MudIconButton Icon="@(AppState.IsDarkMode ? Icons.Material.Rounded.LightMode : Icons.Material.Rounded.DarkMode)"
+                           Color="Color.Inherit" OnClick="AppState.ToggleDarkMode" aria-label="Farbmodus umschalten" />
+        </MudTooltip>
+        <MudTooltip Text="Repository auf GitHub">
+            <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit" Href="https://github.com/LucasN177/devhub" Target="_blank" aria-label="GitHub" />
+        </MudTooltip>
+    </MudAppBar>
+
+    <MudDrawer Open="AppState.IsDrawerOpen" OpenChanged="AppState.SetDrawerOpen" ClipMode="DrawerClipMode.Always" Elevation="0" Variant="DrawerVariant.Responsive" Class="app-drawer">
         <NavMenu />
-    </div>
+    </MudDrawer>
 
-    <main>
-        <div class="top-row px-4">
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
-        </div>
-
-        <article class="content px-4">
+    <MudMainContent>
+        <MudContainer MaxWidth="MaxWidth.Large" Class="py-8 px-4 px-sm-8">
             @Body
-        </article>
-    </main>
-</div>
+        </MudContainer>
+    </MudMainContent>
+</MudLayout>
+
+@code {
+    private MudThemeProvider _themeProvider = null!;
+
+    protected override void OnInitialized()
+    {
+        AppState.OnChange += StateHasChanged;
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            AppState.SetDarkMode(await _themeProvider.GetSystemDarkModeAsync());
+        }
+    }
+
+    public void Dispose()
+    {
+        AppState.OnChange -= StateHasChanged;
+    }
+}
