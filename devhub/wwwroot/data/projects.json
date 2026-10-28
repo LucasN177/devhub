@@ -52,68 +52,35 @@
     "links": []
   },
   {
-    "slug": "portfolio",
-    "name": "Portfolio Website",
-    "tagline": "Persönliche Website mit Lebenslauf und Referenzen",
-    "description": "Beispielprojekt – ersetze diesen Eintrag in wwwroot/data/projects.json durch ein echtes Projekt.\n\nEine statische Portfolio-Seite mit Über-mich-Bereich, Projektreferenzen und Kontaktformular.",
-    "category": "Website",
-    "status": "Completed",
-    "progress": 100,
-    "accentColor": "#10B981",
-    "startedAt": "2026-03-01",
-    "updatedAt": "2026-06-12",
-    "repositoryUrl": null,
-    "liveUrl": null,
-    "technologies": [ "HTML", "CSS", "JavaScript" ],
+    "slug": "monexa",
+    "name": "MonExA",
+    "tagline": "Finanzen über mehrere Projekte und Benutzer hinweg verwalten",
+    "description": "MonExA (MONey + EXpenses + Analysis) ist eine Progressive Web App, die Finanzen über mehrere Projekte und Benutzer hinweg zentral verwaltet – etwa für Freelancing, Startups oder private Investitionen. Jedes Projekt hat eigene Konten, Kategorien, Budgets und Auswertungen, Teammitglieder werden per E-Mail eingeladen und erhalten passende Rollen.\n\nDie App läuft als PWA auf iOS, Android und Desktop ohne App-Store. Mit Supabase-Konfiguration arbeitet sie im Cloud-Modus mit Login, Echtzeit-Synchronisation und Row Level Security; ohne Backend startet sie im Demo-Modus mit Beispieldaten im Browser.",
+    "category": "Finanzen",
+    "status": "Active",
+    "progress": 45,
+    "accentColor": "#059669",
+    "startedAt": "2025-10-03",
+    "updatedAt": "2026-10-28",
+    "repositoryUrl": "https://github.com/LucasN177/monexa",
+    "liveUrl": "https://lucasn177.github.io/monexa/",
+    "technologies": [ "Blazor WASM", ".NET 9", "MudBlazor", "Supabase", "PostgreSQL", "PWA", "GitHub Pages" ],
     "features": [
-      "Responsives Design",
-      "Projektgalerie",
-      "Kontaktformular"
-    ],
-    "nextSteps": [],
-    "links": []
-  },
-  {
-    "slug": "homelab",
-    "name": "Homelab Monitoring",
-    "tagline": "Dashboards und Alerts für Server zu Hause",
-    "description": "Beispielprojekt – ersetze diesen Eintrag in wwwroot/data/projects.json durch ein echtes Projekt.\n\nMonitoring-Stack für das Homelab mit Metriken, Logs und Benachrichtigungen bei Ausfällen.",
-    "category": "Infrastructure",
-    "status": "Paused",
-    "progress": 60,
-    "accentColor": "#F59E0B",
-    "startedAt": "2026-05-10",
-    "updatedAt": "2026-08-02",
-    "repositoryUrl": null,
-    "liveUrl": null,
-    "technologies": [ "Docker", "Grafana", "Prometheus" ],
-    "features": [
-      "Grafana-Dashboards für alle Hosts",
-      "Alerting per Mail"
+      "Projekte mit Rollen (Leser, Bearbeiter, Admin) und Einladungen per E-Mail",
+      "Konten, Buchungen und Umbuchungen mit automatischen Salden",
+      "Daueraufträge, Budgets mit Ampel und Sparziele",
+      "Dashboard, Monats- und Jahresberichte sowie Zeitraumvergleiche",
+      "Kategorie-Vorschläge auf Basis früherer Buchungen",
+      "CSV-Export und JSON-Backup pro Projekt",
+      "Echtzeit-Synchronisation und Demo-Modus ohne Backend"
     ],
     "nextSteps": [
-      "Log-Aggregation ergänzen"
+      "Open Banking (PSD2/FinTS) zur Anbindung echter Bankkonten",
+      "KI-gestützte Kategorisierung von Umsätzen",
+      "DATEV-Export für Steuerberater"
     ],
-    "links": []
-  },
-  {
-    "slug": "cli-tools",
-    "name": "CLI Tools",
-    "tagline": "Sammlung kleiner Helfer für den Entwickleralltag",
-    "description": "Beispielprojekt – ersetze diesen Eintrag in wwwroot/data/projects.json durch ein echtes Projekt.\n\nEine Sammlung von Kommandozeilen-Tools zur Automatisierung wiederkehrender Aufgaben.",
-    "category": "Tooling",
-    "status": "Idea",
-    "progress": 0,
-    "accentColor": "#8B5CF6",
-    "startedAt": "2026-10-25",
-    "updatedAt": "2026-10-25",
-    "repositoryUrl": null,
-    "liveUrl": null,
-    "technologies": [ ".NET", "System.CommandLine" ],
-    "features": [],
-    "nextSteps": [
-      "Ideen sammeln und priorisieren"
-    ],
-    "links": []
+    "links": [
+      { "label": "Implementierungsplan", "url": "https://github.com/LucasN177/monexa/blob/main/docs/IMPLEMENTIERUNGSPLAN.md" }
+    ]
   }
 ]
