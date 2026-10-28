@@ -29,25 +29,29 @@
   {
     "slug": "syncro",
     "name": "Syncro",
-    "tagline": "Kanban-Board für Aufgaben und Teams",
-    "description": "Syncro ist ein schlankes Kanban-Board, mit dem Aufgaben über die Spalten Backlog, Todo, In Progress, Review und Done organisiert werden. Benutzer melden sich über Supabase Auth an, Daten werden in Echtzeit synchronisiert.",
-    "category": "Productivity",
-    "status": "Planning",
-    "progress": 15,
+    "tagline": "Projektmanagement mit Kanban-Board, Kalender und Echtzeit-Zusammenarbeit",
+    "description": "Syncro ist ein leichtgewichtiges Projektmanagement-Tool als Progressive Web App. Teams verwalten Issues auf Kanban-Boards mit den Spalten Backlog, Todo, In Progress, Review und Done, planen Termine im Kalender und behalten über Dashboard und Reports den Überblick. Änderungen anderer Mitglieder erscheinen dank Supabase Realtime ohne Neuladen.\n\nDas Hobby-Projekt setzt bewusst auf handgeschriebenen Code und eine durchdachte Architektur. Rechte werden pro Projekt über Rollen direkt in der Datenbank per Row Level Security geprüft; das Datenbankschema wird mit eigenen SQL-Tests abgesichert.",
+    "category": "Produktivität",
+    "status": "Active",
+    "progress": 80,
     "accentColor": "#0891B2",
-    "startedAt": "2026-09-15",
-    "updatedAt": "2026-10-20",
-    "repositoryUrl": null,
-    "liveUrl": null,
-    "technologies": [ "Blazor WASM", "MudBlazor", "Supabase", "Realtime" ],
+    "startedAt": "2026-04-20",
+    "updatedAt": "2026-10-28",
+    "repositoryUrl": "https://github.com/LucasN177/Syncro",
+    "liveUrl": "https://lucasn177.github.io/Syncro/",
+    "technologies": [ "Blazor WASM", ".NET 10", "MudBlazor", "Supabase", "PostgreSQL", "Realtime", "PWA", "GitHub Pages" ],
     "features": [
-      "Login und Registrierung über Supabase Auth",
-      "Board mit fünf Spalten",
-      "Echtzeit-Synchronisierung zwischen Clients"
+      "Kanban-Board mit gespeichertem Drag & Drop, Suche und Filtern nach Assignee, Priorität und Typ",
+      "Issues mit Typ, Priorität, Fälligkeit, Tags, Kommentaren und Dateianhängen",
+      "Projekte mit Rollen (Admin, Member, Viewer), Einladungen per E-Mail und Archivierung",
+      "Kalender mit Monats-, Wochen- und Listenansicht inkl. fälliger Issues",
+      "Dashboard und Reports aus echten Daten, CSV-Export",
+      "Live-Board und Benachrichtigungen für Zuweisungen, Kommentare und @Erwähnungen",
+      "Anmeldung über Supabase Auth inkl. Passwort-Reset, Dark Mode"
     ],
     "nextSteps": [
-      "Datenmodell für Boards und Karten",
-      "Drag & Drop zwischen Spalten"
+      "Push-Benachrichtigungen bei Erwähnungen und Deadlines, auch wenn die App geschlossen ist",
+      "README-Roadmap auf den aktuellen Stand bringen"
     ],
     "links": []
   },
