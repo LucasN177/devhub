@@ -107,5 +107,35 @@
     ],
     "nextSteps": [],
     "links": []
+  },
+  {
+    "slug": "placebook",
+    "name": "Placebook",
+    "tagline": "Orte sammeln – alle Filialen einer Kette auf der Karte abhaken",
+    "description": "Placebook zeigt auf einer Karte alle Orte einer Kategorie – etwa alle McDonald's-Filialen oder IKEA-Häuser in Europa – und man hakt ab, wo man schon war. Die Karte startet mit ganz Europa und lässt sich bis auf Straßenebene zoomen; Cluster zeigen per Ring den Anteil besuchter Orte.\n\nDie App ist rein statisch: Die Ortsdaten werden aus OpenStreetMap über die Overpass API erzeugt, monatlich per GitHub Action aktualisiert und mit ausgeliefert. Besuche liegen offline-first im Browser und werden zusätzlich in Supabase gespeichert – ohne Anmeldung über einen Sync-Code oder mit Konto.",
+    "category": "Karten & Reisen",
+    "status": "Active",
+    "progress": 75,
+    "accentColor": "#2563EB",
+    "startedAt": "2026-10-28",
+    "updatedAt": "2026-10-28",
+    "repositoryUrl": "https://github.com/LucasN177/placebook",
+    "liveUrl": "https://lucasn177.github.io/placebook/",
+    "technologies": [ "Blazor WASM", ".NET 10", "MudBlazor", "Leaflet", "OpenStreetMap", "Supabase", "PWA", "GitHub Pages" ],
+    "features": [
+      "Interaktive Karte mit Marker-Clustering und Fortschrittsring pro Cluster",
+      "Orte als besucht markieren – mit Datum und Notiz",
+      "Kategorien: McDonald's (8.783 Orte), Burger King (4.318) und IKEA (424) in 45 Ländern",
+      "Listenansicht mit Suche und Sortierung nach Ort, Land oder Entfernung",
+      "Statistik gesamt und pro Land, eigener Standort und nächster unbesuchter Ort",
+      "Cloud-Sync über Sync-Code oder Konto, Export/Import als JSON",
+      "Installierbar als PWA, funktioniert offline"
+    ],
+    "nextSteps": [
+      "Ortsdaten für Krankenhäuser und Universitäten erzeugen"
+    ],
+    "links": [
+      { "label": "Implementationsplan", "url": "https://github.com/LucasN177/placebook/blob/main/docs/IMPLEMENTATION_PLAN.md" }
+    ]
   }
 ]
