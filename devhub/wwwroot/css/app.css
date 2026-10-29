@@ -49,6 +49,17 @@ h1:focus {
     font-weight: 600;
 }
 
+.app-drawer .mud-drawer-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-footer {
+    margin-top: auto;
+    padding: 1rem 1.25rem calc(1rem + env(safe-area-inset-bottom));
+    border-top: 1px solid var(--mud-palette-lines-default);
+}
+
 .status-dot {
     display: inline-block;
     flex: none;
@@ -246,39 +257,103 @@ h1:focus {
         content: "An error has occurred."
     }
 
-.loading-progress {
-    position: absolute;
+/* ---------- Loading screen ---------- */
+
+.splash {
+    --splash-bg: #F6F7FB;
+    --splash-text: #111827;
+    --splash-muted: #667085;
+    --splash-track: #E4E7EC;
+    position: fixed;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    background: var(--splash-bg);
+    color: var(--splash-text);
+    font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+    .splash {
+        --splash-bg: #080B12;
+        --splash-text: #F8FAFC;
+        --splash-muted: #94A3B8;
+        --splash-track: #1E2430;
+    }
+}
+
+.splash-logo {
+    display: grid;
+    place-items: center;
+    width: 72px;
+    height: 72px;
+    margin-bottom: 0.5rem;
+    border-radius: 20px;
+    color: #fff;
+    background: linear-gradient(135deg, #5B5CE2, #8B5CF6);
+    box-shadow: 0 12px 32px rgba(91, 92, 226, 0.35);
+    animation: splash-pulse 1.8s ease-in-out infinite;
+}
+
+.splash-logo svg {
+    width: 36px;
+    height: 36px;
+    fill: currentColor;
+}
+
+.splash-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+}
+
+.splash-progress {
+    width: 180px;
+    height: 4px;
+    margin-top: 0.75rem;
+    border-radius: 999px;
+    overflow: hidden;
+    background: var(--splash-track);
+}
+
+.splash-progress > span {
     display: block;
-    width: 8rem;
-    height: 8rem;
-    inset: 20vh 0 auto 0;
-    margin: 0 auto 0 auto;
+    height: 100%;
+    width: var(--blazor-load-percentage, 0%);
+    border-radius: inherit;
+    background: linear-gradient(90deg, #5B5CE2, #8B5CF6);
+    transition: width 0.15s ease-out;
 }
 
-    .loading-progress circle {
-        fill: none;
-        stroke: #e0e0e0;
-        stroke-width: 0.6rem;
-        transform-origin: 50% 50%;
-        transform: rotate(-90deg);
-    }
+.splash-percent {
+    min-height: 1.25em;
+    font-size: 0.75rem;
+    font-variant-numeric: tabular-nums;
+    color: var(--splash-muted);
+}
 
-        .loading-progress circle:last-child {
-            stroke: #5B5CE2;
-            stroke-dasharray: calc(3.141 * var(--blazor-load-percentage, 0%) * 0.8), 500%;
-            transition: stroke-dasharray 0.05s ease-in-out;
-        }
+.splash-percent::after {
+    content: var(--blazor-load-percentage-text, "");
+}
 
-.loading-progress-text {
+.splash-author {
     position: absolute;
-    text-align: center;
-    font-weight: bold;
-    inset: calc(20vh + 3.25rem) 0 auto 0.2rem;
+    bottom: calc(2rem + env(safe-area-inset-bottom));
+    font-size: 0.8125rem;
+    color: var(--splash-muted);
 }
 
-    .loading-progress-text:after {
-        content: var(--blazor-load-percentage-text, "Loading");
-    }
+@keyframes splash-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.06); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .splash-logo { animation: none; }
+}
 
 
 .text-truncate {
