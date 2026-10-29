@@ -237,5 +237,38 @@
     "links": [
       { "label": "Implementierungsplan", "url": "https://github.com/LucasN177/CodeSail/blob/main/docs/IMPLEMENTATION_PLAN.md" }
     ]
+  },
+  {
+    "slug": "social",
+    "name": "Social",
+    "tagline": "Soziales Netzwerk mit Feed, Stories und Nachrichten als PWA",
+    "description": "Social ist ein soziales Netzwerk als Progressive Web App – gebaut mit Blazor WebAssembly, MudBlazor und Supabase. Geplant sind Feed mit Posts, Likes, Lesezeichen und Kommentaren, Stories und Reels, Profile mit Folgen und Suche sowie Benachrichtigungen und Direktnachrichten in Echtzeit.\n\nDas Backend ist Supabase: Postgres mit Row Level Security, Auth, Storage und Realtime. Die Sicherheit kommt ausschließlich aus den RLS-Policies; alle Datenbankänderungen liegen als nummerierte, idempotente SQL-Skripte im Repository.\n\nDie Grundlagen stehen: Registrierung und Login, eine Sitzung, die einen Reload übersteht, Hell-/Dunkelmodus und Vorschläge, wem man folgen könnte. Feed und Stories gibt es als Oberfläche, noch mit Beispieldaten.",
+    "category": "Social Media",
+    "status": "Active",
+    "progress": 20,
+    "accentColor": "#DB2777",
+    "startedAt": "2026-07-31",
+    "updatedAt": "2026-10-29",
+    "repositoryUrl": "https://github.com/LucasN177/social",
+    "liveUrl": "https://lucasn177.github.io/social/",
+    "technologies": [ "Blazor WASM", ".NET 10", "MudBlazor", "Supabase", "PostgreSQL", "PWA" ],
+    "features": [
+      "Registrierung und Login über Supabase Auth",
+      "Sitzung bleibt nach einem Reload erhalten",
+      "Hell-/Dunkelmodus, folgt dem System und merkt sich die Wahl",
+      "Vorschläge „Suggestions for you“ über eine Datenbankfunktion",
+      "Oberfläche für Feed mit Posts, Likes, Lesezeichen und Kommentaren (noch Beispieldaten)",
+      "Datenbank mit Row Level Security und nummerierten SQL-Skripten"
+    ],
+    "nextSteps": [
+      "Profilseite mit Avatar-Upload, Bio und Post-Grid",
+      "Posts erstellen und Feed mit echten Daten, Likes und Kommentaren",
+      "Folgen, Entfolgen und Suche nach Usern und Hashtags",
+      "Stories und Reels",
+      "Benachrichtigungen und Direktnachrichten in Echtzeit"
+    ],
+    "links": [
+      { "label": "Implementationsplan", "url": "https://github.com/LucasN177/social/blob/main/docs/IMPLEMENTATIONSPLAN.md" }
+    ]
   }
 ]

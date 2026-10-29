@@ -27,6 +27,7 @@ woran gerade gearbeitet wird, wie weit ein Projekt ist und wo Code und Live-Vers
 | [Split](https://github.com/LucasN177/Split) | Gemeinsame Ausgaben mit Freunden und Gruppen fair aufteilen | Aktiv |
 | [Football Tracker](https://github.com/LucasN177/FootballTracker) | Tabellen, Spieltage, Teams und Spieler von Bundesliga bis Champions League verfolgen | Aktiv |
 | [CodeSail](https://github.com/LucasN177/CodeSail) | Leichtgewichtiger Code-Editor für iPad und Tablets – direkt im Browser | Aktiv |
+| [Social](https://github.com/LucasN177/social) | Soziales Netzwerk mit Feed, Stories und Nachrichten als PWA | Aktiv |
 
 ## 🛠 Tech-Stack
 
