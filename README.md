@@ -24,7 +24,7 @@ woran gerade gearbeitet wird, wie weit ein Projekt ist und wo Code und Live-Vers
 | [MonExA](https://github.com/LucasN177/monexa) | Finanzen über mehrere Projekte und Benutzer hinweg verwalten | Aktiv |
 | [Darts](https://github.com/LucasN177/Darts) | Darts zählen und trainieren – mit 11 Spielmodi und Computergegnern | Aktiv |
 | [Placebook](https://github.com/LucasN177/placebook) | Orte sammeln – alle Filialen einer Kette auf der Karte abhaken | Aktiv |
-| [Split](https://github.com/LucasN177/Split) | Gemeinsame Ausgaben mit Freunden und Gruppen fair aufteilen | In Planung |
+| [Split](https://github.com/LucasN177/Split) | Gemeinsame Ausgaben mit Freunden und Gruppen fair aufteilen | Aktiv |
 | [FootballTracker](https://github.com/LucasN177/FootballTracker) | Spieltage, Tabellen und Ergebnisse aus der OpenLigaDB verfolgen | Pausiert |
 | [CodeSail](https://github.com/LucasN177/CodeSail) | Leichtgewichtige IDE für iPad und Tablets – direkt im Browser | In Planung |
 
