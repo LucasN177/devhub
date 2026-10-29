@@ -11,7 +11,7 @@
     "startedAt": "2026-10-01",
     "updatedAt": "2026-10-28",
     "repositoryUrl": "https://github.com/LucasN177/devhub",
-    "liveUrl": "https://lucasn177.github.io/devhub/",
+    "liveUrl": "https://nagelsmann-dev.de/",
     "technologies": [ "Blazor WASM", ".NET 10", "MudBlazor", "Supabase", "GitHub Pages" ],
     "features": [
       "Übersicht aller Projekte mit Status und Fortschritt",
@@ -141,5 +141,33 @@
     "links": [
       { "label": "Implementationsplan", "url": "https://github.com/LucasN177/placebook/blob/main/docs/IMPLEMENTATION_PLAN.md" }
     ]
+  },
+  {
+    "slug": "split",
+    "name": "Split",
+    "tagline": "Gemeinsame Ausgaben mit Freunden und Gruppen fair aufteilen",
+    "description": "Split ist eine Progressive Web App zur Verwaltung gemeinsamer Ausgaben – etwa im Urlaub, in der WG oder im Verein. Ausgaben werden erfasst, offene Salden automatisch berechnet und die nötigen Ausgleichszahlungen übersichtlich dargestellt.\n\nDie App basiert auf Blazor WebAssembly und nutzt Supabase für Authentifizierung, Datenhaltung und Echtzeitfunktionen; der Zugriff auf Daten wird per Row Level Security geschützt. Aktuell steht das technische Grundgerüst, die fachlichen Funktionen folgen.",
+    "category": "Finanzen",
+    "status": "Planning",
+    "progress": 10,
+    "accentColor": "#EA580C",
+    "startedAt": "2026-07-03",
+    "updatedAt": "2026-07-04",
+    "repositoryUrl": "https://github.com/LucasN177/Split",
+    "liveUrl": "https://lucasn177.github.io/Split/",
+    "technologies": [ "Blazor WASM", ".NET 10", "Supabase", "PostgreSQL", "PWA", "GitHub Pages" ],
+    "features": [
+      "Grundgerüst als Blazor-WebAssembly-PWA",
+      "Anbindung an Supabase Auth",
+      "Automatisches Deployment auf GitHub Pages"
+    ],
+    "nextSteps": [
+      "Gruppen und Teilnehmer verwalten",
+      "Gemeinsame Ausgaben erfassen",
+      "Salden und Ausgleichszahlungen automatisch berechnen",
+      "Mehrere Währungen und wiederkehrende Ausgaben",
+      "Export von Abrechnungen und Statistiken"
+    ],
+    "links": []
   }
 ]
