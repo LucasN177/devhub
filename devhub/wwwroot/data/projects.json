@@ -169,5 +169,33 @@
       "Export von Abrechnungen und Statistiken"
     ],
     "links": []
+  },
+  {
+    "slug": "footballtracker",
+    "name": "FootballTracker",
+    "tagline": "Spieltage, Tabellen und Ergebnisse aus der OpenLigaDB verfolgen",
+    "description": "FootballTracker ist ein Spaß- und Lernprojekt rund um Fußball-Daten. Spieltage, Ergebnisse, Tabellen, Teams und Torjäger werden live über die OpenLigaDB API geladen und übersichtlich dargestellt – mit Detailansichten zu Spielen und Teams sowie kleinen Auswertungen und Diagrammen.\n\nDie App läuft als Blazor WebAssembly direkt im Browser ohne eigenes Backend. Über Supabase können sich Nutzer anmelden und Lieblingsspieler speichern.",
+    "category": "Sport & Spiele",
+    "status": "Paused",
+    "progress": 65,
+    "accentColor": "#E11D48",
+    "startedAt": "2025-08-29",
+    "updatedAt": "2026-03-31",
+    "repositoryUrl": "https://github.com/LucasN177/FootballTracker",
+    "liveUrl": "https://lucasn177.github.io/FootballTracker/",
+    "technologies": [ "Blazor WASM", ".NET 9", "MudBlazor", "OpenLigaDB API", "Supabase", "GitHub Pages" ],
+    "features": [
+      "Dashboard mit aktuellen Spielen und Diagrammen",
+      "Spieltage und Ergebnisse mit Detailansicht pro Spiel",
+      "Tabelle mit Klick auf die Teams",
+      "Teamübersicht und Team-Detailseiten",
+      "Torjägerliste und Spielerseite",
+      "Anmeldung, Profil und Lieblingsspieler über Supabase",
+      "Live-Daten über die OpenLigaDB API"
+    ],
+    "nextSteps": [],
+    "links": [
+      { "label": "OpenLigaDB", "url": "https://www.openligadb.de/" }
+    ]
   }
 ]
