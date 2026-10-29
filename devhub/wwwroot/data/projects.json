@@ -206,25 +206,36 @@
   {
     "slug": "codesail",
     "name": "CodeSail",
-    "tagline": "Leichtgewichtige IDE für iPad und Tablets – direkt im Browser",
-    "description": "CodeSail soll eine moderne, vollständig clientseitige IDE werden, die speziell für iPads und Tablets gedacht ist. Als Blazor-WebAssembly-PWA läuft sie komplett im Browser und umgeht so die Einschränkungen des Betriebssystems – ohne Backend und ohne Serverkosten.\n\nÜber die GitHub REST API werden Repositories geladen, Dateien im Monaco-Editor (dem Editor von VS Code) bearbeitet und Änderungen direkt committet. Dank lokaler Spiegelung in IndexedDB soll das auch offline funktionieren. Das Projekt befindet sich noch komplett in der Planung.",
+    "tagline": "Leichtgewichtiger Code-Editor für iPad und Tablets – direkt im Browser",
+    "description": "CodeSail ist ein vollständig clientseitiger Code-Editor, der speziell für iPads und andere Tablets gebaut ist. Als installierbare Blazor-WebAssembly-PWA läuft alles im Browser – ohne Backend, ohne Serverkosten und ohne Telemetrie.\n\nÜber die GitHub REST API werden Repositories geladen, Dateien im Monaco-Editor (dem Editor von VS Code) bearbeitet und Änderungen als ein Commit gepusht – inklusive Konflikterkennung, Branches und Pull Requests. Alle Dateien werden in IndexedDB gespiegelt, sodass auch offline weitergearbeitet werden kann.\n\nMarkdown und HTML lassen sich live in der Vorschau ansehen, JavaScript und TypeScript direkt ausführen – beides isoliert in einer Sandbox ohne Zugriff auf Token oder Offline-Cache. Als Nächstes soll C# mit Roslyn im Browser kompiliert werden.",
     "category": "Developer Tools",
-    "status": "Planning",
-    "progress": 0,
+    "status": "Active",
+    "progress": 70,
     "accentColor": "#0D9488",
     "startedAt": "2026-07-04",
-    "updatedAt": "2026-07-04",
+    "updatedAt": "2026-10-29",
     "repositoryUrl": "https://github.com/LucasN177/CodeSail",
-    "liveUrl": null,
-    "technologies": [ "Blazor WASM", ".NET 10", "Monaco Editor", "Octokit.NET", "IndexedDB", "PWA" ],
-    "features": [],
-    "nextSteps": [
-      "Anmeldung über die GitHub API und Datei-Explorer für Repositories",
-      "Monaco-Editor mit Offline-Cache in IndexedDB",
-      "Commits und Branches direkt aus der App verwalten",
-      "Experimente mit Kompilierung im Browser über Roslyn",
-      "Bedienung für Touch, Magic Keyboard und Tablet-Formate optimieren"
+    "liveUrl": "https://lucasn177.github.io/CodeSail/",
+    "technologies": [ "Blazor WASM", ".NET 10", "MudBlazor", "Monaco Editor", "Octokit.NET", "Markdig", "IndexedDB", "PWA" ],
+    "features": [
+      "Anmeldung per GitHub Fine-grained Token, optional „Angemeldet bleiben“",
+      "Repository-Auswahl mit Suche, Datei-Explorer mit Branch-Wechsel und Dateisuche",
+      "Monaco-Editor mit Syntax-Highlighting, Multi-Cursor und Tabs mit eigenem Undo-Verlauf",
+      "Offline-first: Dateien, Bäume und Branches in IndexedDB, Autosave beim Tippen",
+      "Dateien anlegen, umbenennen, verschieben und löschen",
+      "Änderungsansicht mit Diff und Commit & Push mehrerer Dateien inkl. Konflikterkennung",
+      "Branches anlegen, in neuen Branch committen und Pull Request öffnen",
+      "Live-Vorschau für Markdown und HTML in einer Sandbox",
+      "JavaScript und TypeScript ausführen mit Ausgabe-Panel (Cmd+Enter)",
+      "Offline-Anzeige, API-Limit-Anzeige und Update-Hinweis für neue App-Versionen"
     ],
-    "links": []
+    "nextSteps": [
+      "Machbarkeits-Spike für C# mit Roslyn im Web Worker",
+      "C# im Browser kompilieren und ausführen (Phase 4B)",
+      "Test mit echtem Token auf dem iPad"
+    ],
+    "links": [
+      { "label": "Implementierungsplan", "url": "https://github.com/LucasN177/CodeSail/blob/main/docs/IMPLEMENTATION_PLAN.md" }
+    ]
   }
 ]
