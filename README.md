@@ -25,7 +25,7 @@ woran gerade gearbeitet wird, wie weit ein Projekt ist und wo Code und Live-Vers
 | [Darts](https://github.com/LucasN177/Darts) | Darts zählen und trainieren – mit 11 Spielmodi und Computergegnern | Aktiv |
 | [Placebook](https://github.com/LucasN177/placebook) | Orte sammeln – alle Filialen einer Kette auf der Karte abhaken | Aktiv |
 | [Split](https://github.com/LucasN177/Split) | Gemeinsame Ausgaben mit Freunden und Gruppen fair aufteilen | Aktiv |
-| [FootballTracker](https://github.com/LucasN177/FootballTracker) | Spieltage, Tabellen und Ergebnisse aus der OpenLigaDB verfolgen | Pausiert |
+| [Football Tracker](https://github.com/LucasN177/FootballTracker) | Tabellen, Spieltage, Teams und Spieler von Bundesliga bis Champions League verfolgen | Aktiv |
 | [CodeSail](https://github.com/LucasN177/CodeSail) | Leichtgewichtige IDE für iPad und Tablets – direkt im Browser | In Planung |
 
 ## 🛠 Tech-Stack
