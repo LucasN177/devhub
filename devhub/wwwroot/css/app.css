@@ -60,6 +60,22 @@ h1:focus {
     border-top: 1px solid var(--mud-palette-lines-default);
 }
 
+.nav-footer-link {
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    gap: .375rem;
+    margin-top: .25rem;
+    font-size: .8125rem;
+    font-weight: 500;
+    color: var(--mud-palette-primary);
+    text-decoration: none;
+}
+
+.nav-footer-link:hover {
+    text-decoration: underline;
+}
+
 .status-dot {
     display: inline-block;
     flex: none;
