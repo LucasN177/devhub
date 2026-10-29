@@ -197,5 +197,29 @@
     "links": [
       { "label": "OpenLigaDB", "url": "https://www.openligadb.de/" }
     ]
+  },
+  {
+    "slug": "codesail",
+    "name": "CodeSail",
+    "tagline": "Leichtgewichtige IDE für iPad und Tablets – direkt im Browser",
+    "description": "CodeSail soll eine moderne, vollständig clientseitige IDE werden, die speziell für iPads und Tablets gedacht ist. Als Blazor-WebAssembly-PWA läuft sie komplett im Browser und umgeht so die Einschränkungen des Betriebssystems – ohne Backend und ohne Serverkosten.\n\nÜber die GitHub REST API werden Repositories geladen, Dateien im Monaco-Editor (dem Editor von VS Code) bearbeitet und Änderungen direkt committet. Dank lokaler Spiegelung in IndexedDB soll das auch offline funktionieren. Das Projekt befindet sich noch komplett in der Planung.",
+    "category": "Developer Tools",
+    "status": "Planning",
+    "progress": 0,
+    "accentColor": "#0D9488",
+    "startedAt": "2026-07-04",
+    "updatedAt": "2026-07-04",
+    "repositoryUrl": "https://github.com/LucasN177/CodeSail",
+    "liveUrl": null,
+    "technologies": [ "Blazor WASM", ".NET 10", "Monaco Editor", "Octokit.NET", "IndexedDB", "PWA" ],
+    "features": [],
+    "nextSteps": [
+      "Anmeldung über die GitHub API und Datei-Explorer für Repositories",
+      "Monaco-Editor mit Offline-Cache in IndexedDB",
+      "Commits und Branches direkt aus der App verwalten",
+      "Experimente mit Kompilierung im Browser über Roslyn",
+      "Bedienung für Touch, Magic Keyboard und Tablet-Formate optimieren"
+    ],
+    "links": []
   }
 ]

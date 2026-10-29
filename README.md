@@ -26,6 +26,7 @@ woran gerade gearbeitet wird, wie weit ein Projekt ist und wo Code und Live-Vers
 | [Placebook](https://github.com/LucasN177/placebook) | Orte sammeln – alle Filialen einer Kette auf der Karte abhaken | Aktiv |
 | [Split](https://github.com/LucasN177/Split) | Gemeinsame Ausgaben mit Freunden und Gruppen fair aufteilen | In Planung |
 | [FootballTracker](https://github.com/LucasN177/FootballTracker) | Spieltage, Tabellen und Ergebnisse aus der OpenLigaDB verfolgen | Pausiert |
+| [CodeSail](https://github.com/LucasN177/CodeSail) | Leichtgewichtige IDE für iPad und Tablets – direkt im Browser | In Planung |
 
 ## 🛠 Tech-Stack
 
