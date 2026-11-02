@@ -1,0 +1,67 @@
+@inject IFeatureRequestService FeatureRequests
+
+<MudPaper Elevation="0" Outlined="true" Class="pa-6">
+    <MudText Typo="Typo.h6" Class="mb-1">Feature Requests</MudText>
+    <MudText Typo="Typo.body2" Class="mud-text-secondary mb-4">Du hast eine Idee für @ProjectName? Schreib sie hier rein.</MudText>
+
+    <MudTextField @bind-Value="_name" Label="Name" Variant="Variant.Outlined" Margin="Margin.Dense"
+                  MaxLength="FeatureRequestService.NameMaxLength" Immediate="true" Disabled="_submitting" Class="mb-3" />
+    <MudTextField @bind-Value="_message" Label="Feature Request" Variant="Variant.Outlined" Margin="Margin.Dense"
+                  Lines="4" AutoGrow MaxLines="10" MaxLength="FeatureRequestService.MessageMaxLength"
+                  Immediate="true" Counter="FeatureRequestService.MessageMaxLength" Disabled="_submitting" Class="mb-3" />
+
+    @if (_success)
+    {
+        <MudAlert Severity="Severity.Success" Dense="true" Class="mb-3">Danke! Dein Feature Request wurde gesendet.</MudAlert>
+    }
+    @if (_error is not null)
+    {
+        <MudAlert Severity="Severity.Error" Dense="true" Class="mb-3">@_error</MudAlert>
+    }
+
+    <MudButton Variant="Variant.Filled" Color="Color.Primary" FullWidth="true" Disabled="@(!CanSubmit)"
+               StartIcon="@Icons.Material.Rounded.Send" OnClick="Submit">
+        @(_submitting ? "Wird gesendet …" : "Absenden")
+    </MudButton>
+</MudPaper>
+
+@code {
+    [Parameter, EditorRequired] public string ProjectSlug { get; set; } = string.Empty;
+    [Parameter] public string ProjectName { get; set; } = string.Empty;
+
+    private string _name = string.Empty;
+    private string _message = string.Empty;
+    private bool _submitting;
+    private bool _success;
+    private string? _error;
+
+    private bool CanSubmit => !_submitting && !string.IsNullOrWhiteSpace(_name) && !string.IsNullOrWhiteSpace(_message);
+
+    protected override void OnParametersSet()
+    {
+        // Reset when navigating between projects, the component instance is reused
+        _message = string.Empty;
+        _success = false;
+        _error = null;
+    }
+
+    private async Task Submit()
+    {
+        _submitting = true;
+        _success = false;
+        _error = null;
+
+        var result = await FeatureRequests.Submit(ProjectSlug, _name, _message);
+        if (result.IsSuccess)
+        {
+            _success = true;
+            _message = string.Empty;
+        }
+        else
+        {
+            _error = "Der Feature Request konnte nicht gesendet werden. Bitte versuche es später erneut.";
+        }
+
+        _submitting = false;
+    }
+}
