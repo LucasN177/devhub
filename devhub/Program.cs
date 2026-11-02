@@ -34,5 +34,7 @@ builder.Services.AddSingleton<IAuthRepository, AuthRepository>();
 builder.Services.AddSingleton<AppStateService>();
 builder.Services.AddSingleton<IAuthService, AuthService>();
 builder.Services.AddScoped<IProjectService, ProjectService>();
+builder.Services.AddSingleton<IFeatureRequestRepository, FeatureRequestRepository>();
+builder.Services.AddScoped<IFeatureRequestService, FeatureRequestService>();
 
 await builder.Build().RunAsync();
