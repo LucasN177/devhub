@@ -73,28 +73,4 @@ Auf dem Dashboard werden sie nach `updatedAt` sortiert (neueste zuerst).
 | `technologies`, `features`, `nextSteps` | Listen von Texten; leere Listen blenden den Abschnitt aus |
 | `links` | Weitere Links als `{ "label": "…", "url": "…" }` |
 
-## 💻 Lokal starten
-
-Voraussetzung: [.NET 10 SDK](https://dotnet.microsoft.com/download)
-
-```bash
-dotnet run --project devhub --launch-profile http
-```
-
-Die App läuft dann unter `http://localhost:5102`.
-
-## 🚢 Deployment
-
-Jeder Push auf `main` baut die App per [GitHub Actions](.github/workflows/deploy.yml) und veröffentlicht sie auf
-GitHub Pages unter der eigenen Domain [nagelsmann-dev.de](https://nagelsmann-dev.de/). Die App liegt dort im Root,
-`<base href>` bleibt also `/`. Der Workflow
-
-1. führt `dotnet publish -c Release` aus,
-2. berechnet den Hash von `index.html` im Service-Worker-Manifest neu – nötig, sobald `index.html` nach dem
-   Build verändert wird (z. B. durch den auskommentierten Schritt, der `<base href>` für einen Unterpfad wie
-   `/devhub/` setzt), sonst schlägt die Installation des Service Workers (Offline-Cache/PWA) fehl,
-3. kopiert `index.html` nach `404.html`, damit Deep Links wie `/projects/darts` funktionieren.
-
----
-
 Erstellt von **Lucas Nagelsmann**
