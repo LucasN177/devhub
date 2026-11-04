@@ -22,12 +22,14 @@ woran gerade gearbeitet wird, wie weit ein Projekt ist und wo Code und Live-Vers
 | [DevHub](https://github.com/LucasN177/devhub) | Zentrale Übersicht über alle laufenden Projekte | Aktiv |
 | [Syncro](https://github.com/LucasN177/Syncro) | Projektmanagement mit Kanban-Board, Kalender und Echtzeit-Zusammenarbeit | Aktiv |
 | [MonExA](https://github.com/LucasN177/monexa) | Finanzen über mehrere Projekte und Benutzer hinweg verwalten | Aktiv |
-| [Darts](https://github.com/LucasN177/Darts) | Darts zählen und trainieren – mit 11 Spielmodi und Computergegnern | Aktiv |
+| [Darts](https://github.com/LucasN177/Darts) | Darts zählen und trainieren – mit 27 Spiel- und Trainingsmodi und Computergegnern | Aktiv |
 | [Placebook](https://github.com/LucasN177/placebook) | Orte sammeln – alle Filialen einer Kette auf der Karte abhaken | Aktiv |
 | [Split](https://github.com/LucasN177/Split) | Gemeinsame Ausgaben mit Freunden und Gruppen fair aufteilen | Aktiv |
 | [Football Tracker](https://github.com/LucasN177/FootballTracker) | Tabellen, Spieltage, Teams und Spieler von Bundesliga bis Champions League verfolgen | Aktiv |
 | [CodeSail](https://github.com/LucasN177/CodeSail) | Leichtgewichtiger Code-Editor für iPad und Tablets – direkt im Browser | Aktiv |
 | [Social](https://github.com/LucasN177/social) | Soziales Netzwerk mit Feed, Stories und Nachrichten als PWA | Aktiv |
+| [Cards](https://github.com/LucasN177/Cards) | Klassische Kartenspiele gegen clevere Computergegner – direkt im Browser | Aktiv |
+| [Doxera](https://github.com/LucasN177/Doxera) | PDF-Editor im Browser – lokal, offline und datenschutzfreundlich | Aktiv |
 
 ## 🛠 Tech-Stack
 

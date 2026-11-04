@@ -274,5 +274,72 @@
     "links": [
       { "label": "Implementationsplan", "url": "https://github.com/LucasN177/social/blob/main/docs/IMPLEMENTATIONSPLAN.md" }
     ]
+  },
+  {
+    "slug": "cards",
+    "name": "Cards",
+    "tagline": "Klassische Kartenspiele gegen clevere Computergegner – direkt im Browser",
+    "description": "Cards ist eine browserbasierte Plattform für klassische Kartenspiele gegen Computergegner. Ziel ist es, viele Spiele – von Mau-Mau über Skat und Doppelkopf bis Poker – in einer App zu bündeln, mit einstellbaren Regelvarianten, mehreren KI-Stufen und einem aufgeräumten Spieltisch.\n\nKern ist eine UI-unabhängige Engine in TypeScript: Jedes Spiel ist ein Plugin mit eigenen Regeln, KI, Tisch und Regeltext, und ein Spiel ist vollständig durch Seed und Aktionsliste beschrieben – das trägt Undo, gespeicherte Spiele und reproduzierbare Tests. Die Experten-KI simuliert viele mögliche Verteilungen der verdeckten Karten und spielt jeden Zug per Monte-Carlo durch, sieht dabei aber nur öffentliche Informationen.\n\nEngine, App, Spieltisch, Statistiken und das erste Spiel (Mau-Mau) stehen; weitere Spiele folgen Schritt für Schritt. Alles läuft lokal im Browser, ohne Backend und ohne Registrierung.",
+    "category": "Sport & Spiele",
+    "status": "Active",
+    "progress": 35,
+    "accentColor": "#16A34A",
+    "startedAt": "2026-11-03",
+    "updatedAt": "2026-11-04",
+    "repositoryUrl": "https://github.com/LucasN177/Cards",
+    "liveUrl": "https://lucasn177.github.io/Cards/",
+    "technologies": [ "React 19", "TypeScript", "Vite", "Tailwind CSS", "shadcn/ui", "Zustand", "Framer Motion", "IndexedDB", "Vitest", "Playwright", "PWA", "GitHub Pages" ],
+    "features": [
+      "Mau-Mau mit Regelvarianten (7 zieht zwei, 8 setzt aus, 9 dreht um, Bube wünscht …) und Regeltext in der App",
+      "KI-Gegner in drei Stufen, Experte mit Monte-Carlo-Simulation über verdeckte Karten – ohne zu schummeln",
+      "Spieltisch mit Animationen, Drag-and-drop und Touch-Bedienung, Hoch- und Querformat",
+      "Französische und deutsche Kartenbilder, einstellbares Spieltempo, Hell-/Dunkelmodus",
+      "Undo, laufende Spiele überstehen Neuladen",
+      "Statistiken: Spielverlauf, Siege je KI-Stufe, Serien, Rekorde und spielspezifische Werte",
+      "Modulare Engine: neue Spiele als Plugin ohne Änderung am Kern",
+      "Installierbar als PWA, funktioniert offline"
+    ],
+    "nextSteps": [
+      "Weitere Spiele wie Skat, Doppelkopf, Schafkopf, Poker und Solitaire",
+      "Fortgeschrittene KI im Web Worker mit mehr Suche",
+      "Tutorials, Sound, Achievements und lokaler Mehrspielermodus"
+    ],
+    "links": [
+      { "label": "Implementationsplan", "url": "https://github.com/LucasN177/Cards/blob/main/docs/IMPLEMENTATION_PLAN.md" }
+    ]
+  },
+  {
+    "slug": "doxera",
+    "name": "Doxera",
+    "tagline": "PDF-Editor im Browser – lokal, offline und datenschutzfreundlich",
+    "description": "Doxera ist ein browserbasierter PDF-Editor, der PDF-Bearbeitung mit intelligenter Dokumentverarbeitung und KI-Funktionen verbinden soll. Dokumente werden dabei möglichst lokal im Browser verarbeitet – ohne Registrierung und ohne dass Dateien auf fremde Server hochgeladen werden.\n\nBearbeitete Dokumente werden als Liste von Seitenverweisen (Quelldatei, Seite, Drehung) dargestellt: Änderungen sind sofort sichtbar und vollständig rückgängig zu machen, erst beim Export entsteht mit pdf-lib ein neues PDF. Die Anzeige, Textebene und Suche übernimmt PDF.js.\n\nDer Viewer ist fertig, die Seitenverwaltung zum größten Teil. Danach folgen Anmerkungen und Signaturen, Textbearbeitung, OCR, Automatisierung und KI-Funktionen wie Zusammenfassungen und Chat mit dem Dokument.",
+    "category": "Produktivität",
+    "status": "Active",
+    "progress": 25,
+    "accentColor": "#7C3AED",
+    "startedAt": "2026-11-03",
+    "updatedAt": "2026-11-04",
+    "repositoryUrl": "https://github.com/LucasN177/Doxera",
+    "liveUrl": "https://lucasn177.github.io/Doxera/",
+    "technologies": [ "React", "TypeScript", "Vite", "Tailwind CSS", "shadcn/ui", "Zustand", "PDF.js", "pdf-lib", "IndexedDB", "Vitest", "PWA", "GitHub Pages" ],
+    "features": [
+      "PDF-Viewer mit Zoom, Seitennavigation, Textauswahl und Volltextsuche",
+      "Seiten drehen, löschen, duplizieren und per Drag-and-drop sortieren – mit Undo und Redo",
+      "PDFs zusammenführen und ausgewählte Seiten als neues PDF extrahieren",
+      "Verarbeitung komplett im Browser, keine automatischen Uploads",
+      "Zuletzt geöffnete Dokumente lokal in IndexedDB, einzeln oder komplett löschbar",
+      "iPhone- und iPad-Unterstützung mit Teilen-Menü und Pinch-to-Zoom",
+      "Tastenkürzel, Hell-/Dunkelmodus, installierbar als PWA und offline nutzbar"
+    ],
+    "nextSteps": [
+      "PDFs aufteilen, Seiten zuschneiden und Seitenübersicht für Smartphones",
+      "Anmerkungen, Kommentare und Signaturen",
+      "Bestehenden Text bearbeiten und Inhalte schwärzen",
+      "OCR für gescannte Dokumente",
+      "KI-Funktionen: Zusammenfassungen, Chat mit dem Dokument und Datenextraktion"
+    ],
+    "links": [
+      { "label": "Implementationsplan", "url": "https://github.com/LucasN177/Doxera/blob/main/docs/IMPLEMENTATION_PLAN.md" }
+    ]
   }
 ]
