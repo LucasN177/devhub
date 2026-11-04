@@ -37,7 +37,21 @@ async function onActivate(event) {
         .map(key => caches.delete(key)));
 }
 
+// Project data changes without a new app version, so it is fetched network-first
+// and only falls back to the cached copy when offline
+const networkFirstPaths = [ /\/data\/[^/]+\.json$/ ];
+
 async function onFetch(event) {
+    if (event.request.method === 'GET'
+        && networkFirstPaths.some(pattern => pattern.test(new URL(event.request.url).pathname))) {
+        try {
+            return await fetch(event.request, { cache: 'no-cache' });
+        } catch {
+            const cache = await caches.open(cacheName);
+            return await cache.match(event.request, { ignoreSearch: true }) || Response.error();
+        }
+    }
+
     let cachedResponse = null;
     if (event.request.method === 'GET') {
         // For all navigation requests, try to serve index.html from cache,
