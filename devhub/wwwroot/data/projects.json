@@ -279,30 +279,34 @@
     "slug": "cards",
     "name": "Cards",
     "tagline": "Klassische Kartenspiele gegen clevere Computergegner – direkt im Browser",
-    "description": "Cards ist eine browserbasierte Plattform für klassische Kartenspiele gegen Computergegner. Ziel ist es, viele Spiele – von Mau-Mau über Skat und Doppelkopf bis Poker – in einer App zu bündeln, mit einstellbaren Regelvarianten, mehreren KI-Stufen und einem aufgeräumten Spieltisch.\n\nKern ist eine UI-unabhängige Engine in TypeScript: Jedes Spiel ist ein Plugin mit eigenen Regeln, KI, Tisch und Regeltext, und ein Spiel ist vollständig durch Seed und Aktionsliste beschrieben – das trägt Undo, gespeicherte Spiele und reproduzierbare Tests. Die Experten-KI simuliert viele mögliche Verteilungen der verdeckten Karten und spielt jeden Zug per Monte-Carlo durch, sieht dabei aber nur öffentliche Informationen.\n\nEngine, App, Spieltisch, Statistiken und das erste Spiel (Mau-Mau) stehen; weitere Spiele folgen Schritt für Schritt. Alles läuft lokal im Browser, ohne Backend und ohne Registrierung.",
+    "description": "Cards ist eine browserbasierte Plattform für klassische Kartenspiele gegen Computergegner. Ziel ist es, viele Spiele – von Mau-Mau über Skat und Doppelkopf bis Poker – in einer App zu bündeln, mit einstellbaren Regelvarianten, mehreren KI-Stufen und einem aufgeräumten Spieltisch.\n\nKern ist eine UI-unabhängige Engine in TypeScript: Jedes Spiel ist ein Plugin mit eigenen Regeln, KI, Tisch und Regeltext, und ein Spiel ist vollständig durch Seed und Aktionsliste beschrieben – das trägt Undo, gespeicherte Spiele und reproduzierbare Tests. Die Experten-KI simuliert viele mögliche Verteilungen der verdeckten Karten und spielt jeden Zug per Monte-Carlo durch, sieht dabei aber nur öffentliche Informationen. Die Computergegner rechnen in einem Web Worker, damit Animationen auch bei aufwendigen Simulationen flüssig bleiben.\n\nEngine, App, Spieltisch, Statistiken und zehn Spiele stehen: Mau-Mau, Crazy Eights, Hearts, Blackjack, Schwimmen, President, Durak, Solitär, FreeCell und Spider. Als Nächstes kommen Stichspiele wie Spades, Sechsundsechzig, Euchre und Wizard. Alles läuft lokal im Browser, ohne Backend und ohne Registrierung.",
     "category": "Sport & Spiele",
     "status": "Active",
-    "progress": 35,
+    "progress": 50,
     "accentColor": "#16A34A",
     "startedAt": "2026-11-03",
     "updatedAt": "2026-11-04",
     "repositoryUrl": "https://github.com/LucasN177/Cards",
     "liveUrl": "https://lucasn177.github.io/Cards/",
-    "technologies": [ "React 19", "TypeScript", "Vite", "Tailwind CSS", "shadcn/ui", "Zustand", "Framer Motion", "IndexedDB", "Vitest", "Playwright", "PWA", "GitHub Pages" ],
+    "technologies": [ "React 19", "TypeScript", "Vite", "Tailwind CSS", "shadcn/ui", "Zustand", "Framer Motion", "Web Workers", "Web Audio API", "IndexedDB", "Vitest", "Playwright", "PWA", "GitHub Pages" ],
     "features": [
-      "Mau-Mau mit Regelvarianten (7 zieht zwei, 8 setzt aus, 9 dreht um, Bube wünscht …) und Regeltext in der App",
+      "Zehn Spiele: Mau-Mau, Crazy Eights, Hearts, Blackjack, Schwimmen, President, Durak, Solitär, FreeCell und Spider",
+      "Regelvarianten je Spiel, z. B. Mau-Mau mit 7 zieht zwei und Bube wünscht, Hearts mit Shoot the Moon, Spider mit 1, 2 oder 4 Farben",
+      "Partien über mehrere Runden mit Punktestand, Regeltexte in der App",
       "KI-Gegner in drei Stufen, Experte mit Monte-Carlo-Simulation über verdeckte Karten – ohne zu schummeln",
+      "KI rechnet im Web Worker, Animationen bleiben flüssig",
       "Spieltisch mit Animationen, Drag-and-drop und Touch-Bedienung, Hoch- und Querformat",
-      "Französische und deutsche Kartenbilder, einstellbares Spieltempo, Hell-/Dunkelmodus",
+      "Hinweise und Auto-Abschluss bei Solitär, Basic-Strategy-Tipp bei Blackjack",
+      "Französische und deutsche Kartenbilder, Soundeffekte mit Lautstärkeregler, Hell-/Dunkelmodus",
       "Undo, laufende Spiele überstehen Neuladen",
       "Statistiken: Spielverlauf, Siege je KI-Stufe, Serien, Rekorde und spielspezifische Werte",
-      "Modulare Engine: neue Spiele als Plugin ohne Änderung am Kern",
       "Installierbar als PWA, funktioniert offline"
     ],
     "nextSteps": [
-      "Weitere Spiele wie Skat, Doppelkopf, Schafkopf, Poker und Solitaire",
-      "Fortgeschrittene KI im Web Worker mit mehr Suche",
-      "Tutorials, Sound, Achievements und lokaler Mehrspielermodus"
+      "Stichspiele: Spades, Sechsundsechzig, Euchre und Wizard",
+      "Skat, Doppelkopf, Schafkopf und Poker",
+      "KI-Persönlichkeiten, adaptive Schwierigkeit und Erklärungen für KI-Züge",
+      "Tutorials, Achievements und lokaler Mehrspielermodus"
     ],
     "links": [
       { "label": "Implementationsplan", "url": "https://github.com/LucasN177/Cards/blob/main/docs/IMPLEMENTATION_PLAN.md" }
@@ -312,34 +316,37 @@
     "slug": "doxera",
     "name": "Doxera",
     "tagline": "PDF-Editor im Browser – lokal, offline und datenschutzfreundlich",
-    "description": "Doxera ist ein browserbasierter PDF-Editor, der PDF-Bearbeitung mit intelligenter Dokumentverarbeitung und KI-Funktionen verbinden soll. Dokumente werden dabei möglichst lokal im Browser verarbeitet – ohne Registrierung und ohne dass Dateien auf fremde Server hochgeladen werden.\n\nBearbeitete Dokumente werden als Liste von Seitenverweisen (Quelldatei, Seite, Drehung) dargestellt: Änderungen sind sofort sichtbar und vollständig rückgängig zu machen, erst beim Export entsteht mit pdf-lib ein neues PDF. Die Anzeige, Textebene und Suche übernimmt PDF.js.\n\nDer Viewer ist fertig, die Seitenverwaltung zum größten Teil. Danach folgen Anmerkungen und Signaturen, Textbearbeitung, OCR, Automatisierung und KI-Funktionen wie Zusammenfassungen und Chat mit dem Dokument.",
+    "description": "Doxera ist ein browserbasierter PDF-Editor, der PDF-Bearbeitung mit intelligenter Dokumentverarbeitung und KI-Funktionen verbinden soll. Dokumente werden dabei möglichst lokal im Browser verarbeitet – ohne Registrierung und ohne dass Dateien auf fremde Server hochgeladen werden.\n\nBearbeitete Dokumente werden als Liste von Seitenverweisen (Quelldatei, Seite, Drehung) dargestellt: Änderungen sind sofort sichtbar und vollständig rückgängig zu machen, erst beim Export entsteht mit pdf-lib ein neues PDF. Die Anzeige, Textebene und Suche übernimmt PDF.js. Für echtes Bearbeiten wie Schwärzen und Textänderungen kommt MuPDF.js dazu, für die Texterkennung Tesseract.js – beide werden erst bei Bedarf geladen.\n\nViewer, Seitenverwaltung, Anmerkungen, echtes Bearbeiten und OCR sind fertig, die Umwandlung zwischen PDF und Bildern ebenfalls. Als Nächstes folgen Komprimierung, Datenexport, Stapelverarbeitung und Workflows, danach KI-Funktionen wie Zusammenfassungen und Chat mit dem Dokument.",
     "category": "Produktivität",
     "status": "Active",
-    "progress": 25,
+    "progress": 70,
     "accentColor": "#7C3AED",
     "startedAt": "2026-11-03",
     "updatedAt": "2026-11-04",
     "repositoryUrl": "https://github.com/LucasN177/Doxera",
     "liveUrl": "https://lucasn177.github.io/Doxera/",
-    "technologies": [ "React", "TypeScript", "Vite", "Tailwind CSS", "shadcn/ui", "Zustand", "PDF.js", "pdf-lib", "IndexedDB", "Vitest", "PWA", "GitHub Pages" ],
+    "technologies": [ "React", "TypeScript", "Vite", "Tailwind CSS", "shadcn/ui", "Zustand", "PDF.js", "pdf-lib", "MuPDF.js", "Tesseract.js", "WebAssembly", "IndexedDB", "Vitest", "PWA", "GitHub Pages" ],
     "features": [
       "PDF-Viewer mit Zoom, Seitennavigation, Textauswahl und Volltextsuche",
-      "Seiten drehen, löschen, duplizieren und per Drag-and-drop sortieren – mit Undo und Redo",
-      "PDFs zusammenführen und ausgewählte Seiten als neues PDF extrahieren",
+      "Seiten drehen, löschen, duplizieren, zuschneiden und per Drag-and-drop sortieren – mit Undo und Redo, auch auf dem Smartphone",
+      "PDFs zusammenführen, aufteilen und ausgewählte Seiten als neues PDF extrahieren",
+      "Bestehenden Text zeilenweise bearbeiten, Bilder verschieben, skalieren und entfernen",
+      "Anmerkungen: Formen, Pfeile, Textfelder, Freihand, Markieren, Kommentare, Bilder und Wasserzeichen",
+      "Signaturen zeichnen, tippen oder hochladen",
+      "Inhalte dauerhaft schwärzen – der Inhalt darunter wird aus der Datei entfernt",
+      "OCR in fünf Sprachen: durchsuchbare PDFs, Textexport als Markdown und Tabellen als CSV",
+      "PDF in Bilder (PNG/JPEG) und Bilder in PDF umwandeln, inkl. HEIC",
       "Verarbeitung komplett im Browser, keine automatischen Uploads",
-      "Zuletzt geöffnete Dokumente lokal in IndexedDB, einzeln oder komplett löschbar",
-      "iPhone- und iPad-Unterstützung mit Teilen-Menü und Pinch-to-Zoom",
-      "Tastenkürzel, Hell-/Dunkelmodus, installierbar als PWA und offline nutzbar"
+      "iPhone- und iPad-Unterstützung, Tastenkürzel, Hell-/Dunkelmodus, installierbar als PWA und offline nutzbar"
     ],
     "nextSteps": [
-      "PDFs aufteilen, Seiten zuschneiden und Seitenübersicht für Smartphones",
-      "Anmerkungen, Kommentare und Signaturen",
-      "Bestehenden Text bearbeiten und Inhalte schwärzen",
-      "OCR für gescannte Dokumente",
+      "PDFs komprimieren und Daten als CSV, Excel und JSON exportieren",
+      "Stapelverarbeitung und wiederverwendbare Workflows",
       "KI-Funktionen: Zusammenfassungen, Chat mit dem Dokument und Datenextraktion"
     ],
     "links": [
-      { "label": "Implementationsplan", "url": "https://github.com/LucasN177/Doxera/blob/main/docs/IMPLEMENTATION_PLAN.md" }
+      { "label": "Implementationsplan", "url": "https://github.com/LucasN177/Doxera/blob/main/docs/IMPLEMENTATION_PLAN.md" },
+      { "label": "Lizenz (AGPL-3.0)", "url": "https://github.com/LucasN177/Doxera/blob/main/LICENSE" }
     ]
   }
 ]
