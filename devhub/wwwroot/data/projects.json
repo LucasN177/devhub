@@ -356,5 +356,37 @@
       { "label": "Implementationsplan", "url": "https://github.com/LucasN177/Doxera/blob/main/docs/IMPLEMENTATION_PLAN.md" },
       { "label": "Lizenz (AGPL-3.0)", "url": "https://github.com/LucasN177/Doxera/blob/main/LICENSE" }
     ]
+  },
+  {
+    "slug": "blockerbetting",
+    "name": "BlockerBetting",
+    "tagline": "Interne Wettplattform fürs Team – mit virtuellen Coins statt Echtgeld",
+    "description": "BlockerBetting ist eine interne Wettplattform für das Team. Jede Person hat einen eigenen Account, startet mit 1.000 Coins und setzt sie auf Events wie „Wer gewinnt das Kicker-Turnier?“ oder „Wird das Release diese Woche fertig?“. Gespielt wird ausschließlich mit virtuellen Coins, nicht mit Echtgeld.\n\nAdmins legen Wetten mit festen Quoten an, schließen sie und zahlen nach dem Ergebnis aus. Jeder Spieler kann eigene Wetten vorschlagen; nach der Freigabe durch einen Admin darf der Antragsteller sie nach dem Wettschluss selbst auflösen.\n\nDie App ist rein statisch und läuft als Blazor WebAssembly auf GitHub Pages. Alles, was Coins verändert – Wetten platzieren, Events auflösen –, läuft in Postgres-Funktionen in Supabase; Row Level Security verhindert Manipulation aus dem Browser.",
+    "category": "Sport & Spiele",
+    "status": "Active",
+    "progress": 60,
+    "accentColor": "#D97706",
+    "startedAt": "2026-11-17",
+    "updatedAt": "2026-11-17",
+    "repositoryUrl": "https://github.com/LucasN177/blockerbetting",
+    "liveUrl": "https://lucasn177.github.io/blockerbetting/",
+    "technologies": [ "Blazor WASM", ".NET 10", "MudBlazor", "Supabase", "PostgreSQL", "PWA", "GitHub Pages" ],
+    "features": [
+      "Registrierung und Login über Supabase Auth, 1.000 Start-Coins pro Spieler",
+      "Events mit beliebig vielen Antwortoptionen, optionalem Wettschluss und Status offen, geschlossen, aufgelöst oder abgebrochen",
+      "Feste Quoten pro Option; jede Wette behält die Quote zum Zeitpunkt der Abgabe",
+      "Mehrere Wetten pro Event, Guthaben wird serverseitig atomar geprüft und abgebucht",
+      "Rangliste aller Spieler nach Coins",
+      "Admin-Bereich: Wetten anlegen und bearbeiten, schließen, auszahlen oder mit Rückerstattung abbrechen",
+      "Wetten vorschlagen, Freigabe oder Ablehnung mit Begründung durch Admins",
+      "Ersteller lösen ihre Wetten nach dem Wettschluss selbst auf",
+      "Geschäftslogik in Postgres-Funktionen, abgesichert per Row Level Security"
+    ],
+    "nextSteps": [
+      "Live-Updates über Supabase Realtime",
+      "Wöchentlicher Coin-Bonus bzw. Mindestguthaben",
+      "Statistiken und Historie pro Spieler"
+    ],
+    "links": []
   }
 ]
