@@ -31,6 +31,7 @@ woran gerade gearbeitet wird, wie weit ein Projekt ist und wo Code und Live-Vers
 | [Cards](https://github.com/LucasN177/Cards) | Klassische Kartenspiele gegen clevere Computergegner – direkt im Browser | Aktiv |
 | [Doxera](https://github.com/LucasN177/Doxera) | PDF-Editor im Browser – lokal, offline und datenschutzfreundlich | Aktiv |
 | [BlockerBetting](https://github.com/LucasN177/blockerbetting) | Interne Wettplattform fürs Team – mit virtuellen Coins statt Echtgeld | Aktiv |
+| [Codebase Explorer](https://github.com/LucasN177/CodebaseExplorer) | Codebasen visuell verstehen – lokal, mit Belegen für jede Abhängigkeit | Aktiv |
 
 ## 🛠 Tech-Stack
 

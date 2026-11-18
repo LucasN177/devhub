@@ -388,5 +388,41 @@
       "Statistiken und Historie pro Spieler"
     ],
     "links": []
+  },
+  {
+    "slug": "codebaseexplorer",
+    "name": "Codebase Explorer",
+    "tagline": "Codebasen visuell verstehen – lokal, mit Belegen für jede Abhängigkeit",
+    "description": "Codebase Explorer ist eine Desktop-App für Windows, macOS und Linux, die Repositories analysiert und Struktur, Architektur, Abhängigkeiten und Git-Historie in ein interaktives Architekturmodell übersetzt. So sollen sich fremde oder komplexe Codebasen schnell verstehen lassen – ohne Code hochzuladen und ohne ihn auszuführen.\n\nJede angezeigte Beziehung ist mit Belegen hinterlegt (Datei, Zeilenbereich, Analyseregel, Sicherheitsgrad). Die Analyse läuft statisch: Für C# kommt Roslyn ohne Build und ohne MSBuild-Auswertung zum Einsatz, später Tree-sitter für TypeScript, JavaScript und Python. KI ist nur ein optionaler, lokaler Assistent, der sich auf diese Fakten stützt.\n\nDer erste durchgehende Ablauf steht: lokalen Ordner importieren, .NET-Projekte analysieren und den Abhängigkeitsgraphen im Architecture Explorer anzeigen. Gerade in Arbeit ist die lokale Speicherung in SQLite; danach folgen tiefere C#-Analyse, weitere Sprachen, Git, Export und lokale KI.",
+    "category": "Developer Tools",
+    "status": "Active",
+    "progress": 25,
+    "accentColor": "#0284C7",
+    "startedAt": "2026-11-17",
+    "updatedAt": "2026-11-18",
+    "repositoryUrl": "https://github.com/LucasN177/CodebaseExplorer",
+    "technologies": [ ".NET 10", "C#", "Avalonia UI", "CommunityToolkit.Mvvm", "Roslyn", "Cytoscape.js", "TypeScript", "SQLite", "EF Core", "xUnit" ],
+    "features": [
+      "Lokalen Ordner importieren – mit Fortschritt in Stufen und Abbrechen",
+      "Statische Analyse von .NET-Projekten ohne Build: Projekte, Projekt-, Paket- und Framework-Referenzen",
+      "C#-Analyse mit Roslyn: Namespaces, Typen, Member, Vererbung, Aufrufe und DI-Registrierungen",
+      "Architecture Explorer: Abhängigkeitsgraph mit mehreren Layouts und Drill-down bis auf Typen",
+      "Component Inspector mit Belegen (Datei und Zeile) und Quelltext-Ausschnitt",
+      "Repository-Übersicht: Dateien und Zeilen pro Sprache, Projekte, externe Abhängigkeiten",
+      "Analyse-Historie mit Laufzeit, Statistiken und filterbaren Diagnosen",
+      "Ergebnisse lokal in SQLite, zuletzt geöffnete Repositories ohne erneute Analyse öffnen",
+      "Hell-/Dunkelmodus, Code wird nie hochgeladen oder ausgeführt"
+    ],
+    "nextSteps": [
+      "Lokale Speicherung abschließen und gespeicherte Repositories öffnen (M2)",
+      "Tiefere C#-Analyse, Filter, Suche und Nachbarschaftsansicht im Graphen (M3)",
+      "TypeScript-, JavaScript- und Python-Analyse mit Tree-sitter (M4)",
+      "Git-Metadaten und Änderungsaktivität, Remotes klonen (M5)",
+      "Export als Markdown/Mermaid (M6) und lokale KI mit Ollama (M7)"
+    ],
+    "links": [
+      { "label": "Implementationsplan", "url": "https://github.com/LucasN177/CodebaseExplorer/blob/main/docs/implementation/IMPLEMENTATION_PLAN.md" },
+      { "label": "Vision", "url": "https://github.com/LucasN177/CodebaseExplorer/blob/main/docs/product/VISION.md" }
+    ]
   }
 ]
